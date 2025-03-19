@@ -25,5 +25,5 @@ ServerEvents.recipes(event => {
     event.remove({id: "create:mixing/andesite_alloy"});
     event.remove({id: "tconstruct:compat/create/andesite_alloy_iron"});
 
-    event.recipes.createMixing([Fluid.of('tconstruct:molten_bronze', 750)], [Fluid.of('tconstruct:molten_copper', 750), Fluid.of('tconstruct:molten_tin', 250)]);
+    event.recipes.createMixing([Fluid.of('tconstruct:molten_bronze', 360)], [Fluid.of('tconstruct:molten_copper', 270), Fluid.of('tconstruct:molten_tin', 90)]);
 })
