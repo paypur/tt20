@@ -17,11 +17,16 @@ ServerEvents.recipes(event => {
     event.replaceInput({output: 'tconstruct:travelers_leggings'}, 'minecraft:leather', '#kubejs:leather');
     event.replaceInput({output: 'tconstruct:travelers_boots'}, 'minecraft:leather', '#kubejs:leather');
 
-
+    /*
+     * Smeltery
+     */
     event.replaceInput({output: 'tconstruct:seared_heater'}, 'minecraft:air', 'minecraft:blast_furnace');
 
     event.replaceInput({mod: 'tconstruct'}, 'minecraft:glass', 'tconstruct:clear_glass');
     event.blasting('tconstruct:clear_glass', 'minecraft:glass');
+
+    event.recipes.createMixing([Fluid.of('tconstruct:molten_bronze', 360)], [Fluid.of('tconstruct:molten_copper', 270), Fluid.of('tconstruct:molten_tin', 90)]).heated();
+    event.recipes.createMixing([Fluid.of('tconstruct:molten_amethyst_bronze', 90)], [Fluid.of('tconstruct:molten_copper', 90), Fluid.of('tconstruct:molten_amethyst', 100)]).heated();
 
     replace('tconstruct:smeltery_controller', ['BBB', 'BGB', 'SFS'], {
         B: '#forge:ingots/bronze',
@@ -33,11 +38,42 @@ ServerEvents.recipes(event => {
     // event.remove({output: "tconstruct:grout"});
     // event.recipes.createMixing(["2x tconstruct:grout"], ["minecraft:clay_ball", "minecraft:gravel", "#minecraft:sand", Fluid.of('minecraft:water', 250)]);
 
-    const copper_2_bronze = ['tconstruct:seared_chute', 'tconstruct:seared_drain'];
-    copper_2_bronze.forEach((s) => event.replaceInput({output: s}, 'minecraft:copper_ingot', '#forge:ingots/bronze'));
+    // TODO: change melting byproduct
+    ["tconstruct:seared_chute", "tconstruct:seared_drain"]
+        .forEach((s) => event.replaceInput({output: s}, 'minecraft:copper_ingot', '#forge:ingots/bronze'));
+    /*
+     * Foundry
+     */
+    event.remove({id: 'tconstruct:smeltery/scorched/scorched_brick'})
+    event.remove({id: 'tconstruct:smeltery/scorched/scorched_brick_kiln'})
+    event.remove({id: 'tconstruct:smeltery/casting/scorched/brick_composite'})
+    event.remove({id: 'tconstruct:smeltery/casting/scorched/polished_from_magma'})
+    event.remove({id: 'tconstruct:smeltery/casting/scorched/stone_from_magma'})
+    event.recipes.createMixing([Fluid.of("tconstruct:scorched_stone", 250)], [Fluid.of("tconstruct:magma", 250), "minecraft:soul_soil", "minecraft:gravel"]).heated();
 
-    // TODO: use bronze in smeltery stuff
-    // alloy with create first
+    // TODO: change melting byproduct
+    event.remove({output: 'tconstruct:foundry_controller'})
+    event.recipes.createMechanicalCrafting('tconstruct:foundry_controller', [
+        'NNNNN',
+        'NGGGN',
+        'NACAN',
+        'SSSSS',
+        'SBBBS'
+    ], {
+        A: 'mekanism:advanced_control_circuit',
+        B: 'minecraft:blast_furnace',
+        C: 'tfmg:steel_casing',
+        G: 'ae2:quartz_glass',
+        N: 'tconstruct:nahuatl',
+        S: 'tconstruct:scorched_bricks'
+    })
+
+    event.replaceInput({mod: 'tconstruct'}, 'minecraft:quartz', 'ae2:quartz_glass')
+    event.replaceInput({output: 'tconstruct:scorched_duct'}, 'minecraft:gold_ingot', '#forge:ingots/cobalt');
+    // wont working without assigning idk
+    // TODO: change melting byproduct
+    ["tconstruct:scorched_chute", "tconstruct:scorched_drain"]
+        .forEach(s => event.replaceInput({output: s}, 'tconstruct:obsidian_pane', "tconstruct:nahuatl"));
 
     /*
      * Modifiers
