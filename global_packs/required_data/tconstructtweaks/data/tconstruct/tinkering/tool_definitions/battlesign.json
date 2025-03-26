@@ -31,7 +31,7 @@
       "type": "tconstruct:base_stats",
       "stats": {
         "tconstruct:attack_damage": 2.0,
-        "tconstruct:attack_speed": 1.2,
+        "tconstruct:attack_speed": 0.96,
         "tconstruct:block_amount": 50.0,
         "tconstruct:block_angle": 120.0
       }

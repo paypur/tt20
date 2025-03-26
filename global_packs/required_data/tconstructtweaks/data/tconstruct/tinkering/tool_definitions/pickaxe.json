@@ -30,7 +30,7 @@
       "type": "tconstruct:base_stats",
       "stats": {
         "tconstruct:attack_damage": 0.5,
-        "tconstruct:attack_speed": 1.2
+        "tconstruct:attack_speed": 0.96
       }
     },
     {
