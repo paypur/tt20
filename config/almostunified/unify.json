@@ -87,7 +87,17 @@
   "blockTagInheritanceMode": "ALLOW",
   "blockTagInheritance": {},
   "ignoredTags": [],
-  "ignoredItems": [],
+  "ignoredItems": [
+    "mekanism:dust_iron",
+    "mekanism:dust_gold",
+    "mekanism:dust_copper",
+    "mekanism:dust_zinc",
+    "mekanism:dust_osmium",
+    "mekanism:dust_tin",
+    "mekanism:dust_lead",
+    "mekanism:dust_uranium",
+    "mekanism:dust_nickel"
+  ],
   "ignoredRecipeTypes": [
     "cucumber:shaped_tag"
   ],

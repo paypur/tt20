@@ -24,4 +24,12 @@ ServerEvents.recipes(event => {
     event.remove({id: "create:crafting/materials/andesite_alloy_from_zinc"});
     event.remove({id: "create:mixing/andesite_alloy"});
     event.remove({id: "tconstruct:compat/create/andesite_alloy_iron"});
+
+    /*
+     * Milling Compat
+     * TODO: probably do more
+     */
+
+    event.recipes.create.milling('create:crushed_raw_tin', '#forge:ingots/tin')
+    event.recipes.create.milling('create:crushed_raw_tin', '#forge:raw_materials/tin')
 })

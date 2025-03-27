@@ -25,8 +25,17 @@ ServerEvents.recipes(event => {
     event.replaceInput({mod: 'tconstruct'}, 'minecraft:glass', 'tconstruct:clear_glass');
     event.blasting('tconstruct:clear_glass', 'minecraft:glass');
 
-    event.recipes.createMixing([Fluid.of('tconstruct:molten_bronze', 360)], [Fluid.of('tconstruct:molten_copper', 270), Fluid.of('tconstruct:molten_tin', 90)]).heated();
-    event.recipes.createMixing([Fluid.of('tconstruct:molten_amethyst_bronze', 90)], [Fluid.of('tconstruct:molten_copper', 90), Fluid.of('tconstruct:molten_amethyst', 100)]).heated();
+
+    event.shapeless(
+        Item.of('mekanism:dust_bronze', 4),
+        [
+            '3x #forge:dusts/copper',
+            '#forge:dusts/tin'
+        ]
+    )
+
+    // event.recipes.createMixing([Fluid.of('tconstruct:molten_bronze', 360)], [Fluid.of('tconstruct:molten_copper', 270), Fluid.of('tconstruct:molten_tin', 90)]).heated();
+    // event.recipes.createMixing([Fluid.of('tconstruct:molten_amethyst_bronze', 90)], [Fluid.of('tconstruct:molten_copper', 90), Fluid.of('tconstruct:molten_amethyst', 100)]).heated();
 
     replace('tconstruct:smeltery_controller', ['BBB', 'BGB', 'SFS'], {
         B: '#forge:ingots/bronze',
