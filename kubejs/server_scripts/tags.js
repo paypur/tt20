@@ -12,4 +12,15 @@ ServerEvents.tags('item', event => {
 
   event.add("forge:dusts/sulfur", 'tfmg:sulfur_dust');
 
+  event.removeAll('create:fan_processing_catalysts/blasting');
+
+})
+
+// https://www.reddit.com/r/CreateMod/comments/1ceabxl/comment/mjyy56s
+ServerEvents.tags('block', event => {
+  event.removeAll('create:fan_processing_catalysts/blasting');
+})
+
+ServerEvents.tags('fluid', event => {
+  event.removeAll('create:fan_processing_catalysts/blasting');
 })

@@ -48,8 +48,8 @@ ServerEvents.recipes(event => {
     // event.recipes.createMixing(["2x tconstruct:grout"], ["minecraft:clay_ball", "minecraft:gravel", "#minecraft:sand", Fluid.of('minecraft:water', 250)]);
 
     // TODO: change melting byproduct
-    ["tconstruct:seared_chute", "tconstruct:seared_drain"]
-        .forEach((s) => event.replaceInput({output: s}, 'minecraft:copper_ingot', '#forge:ingots/bronze'));
+    // ["tconstruct:seared_chute", "tconstruct:seared_drain"]
+    //     .forEach((s) => event.replaceInput({output: s}, 'minecraft:copper_ingot', '#forge:ingots/bronze'));
     /*
      * Foundry
      */

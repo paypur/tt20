@@ -12,7 +12,7 @@ ServerEvents.recipes(event => {
         B: "#minecraft:wooden_buttons",
         P: "#minecraft:planks",
         S: "create:shaft"
-    },);
+    });
 
     event.remove({id: "create:crafting/kinetics/large_cogwheel_from_little"});
     event.shaped('create:large_cogwheel', [" P ", "PSP", " P "], {P: "#minecraft:planks", S: "create:cogwheel"},);
@@ -30,6 +30,9 @@ ServerEvents.recipes(event => {
      * TODO: probably do more
      */
 
-    event.recipes.create.milling('create:crushed_raw_tin', '#forge:ingots/tin')
-    event.recipes.create.milling('create:crushed_raw_tin', '#forge:raw_materials/tin')
+    // event.recipes.create.milling('create:crushed_raw_iron', '#forge:ingots/iron')
+    // event.recipes.create.milling('create:crushed_raw_tin', '#forge:ingots/tin')
+    ["iron", "gold", "copper", "zinc", "osmium", "tin", "lead", "uranium", "nickel"].forEach(ore =>
+        event.recipes.create.milling(`create:crushed_raw_${ore}`, `#forge:raw_materials/${ore}`)
+    )
 })
