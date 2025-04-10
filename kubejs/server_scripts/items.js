@@ -9,7 +9,22 @@ ServerEvents.recipes(event => {
             })
             event.remove({
                 output: tag,
-                not: [{mod: "tconstruct"}, {mod: "draconicevolution"}, {mod: "mekanism"}, {mod: "create"}, {mod: "cataclysm"}]
+                not: [{mod:"alexscaves"}, {mod: "tconstruct"}, {mod: "draconicevolution"}, {mod: "mekanism"}, {mod: "create"}, {mod: "cataclysm"}]
             })
         });
+
+    // stuff missed by tag
+    [
+        "tfmg:steel", "tfmg:aluninum", "tfmg:lead"
+    ].forEach((prefix) => {
+        event.remove({output:`${prefix}_sword`});
+        event.remove({output:`${prefix}_pickaxe`});
+        event.remove({output:`${prefix}_axe`});
+        event.remove({output:`${prefix}_shovel`});
+        event.remove({output:`${prefix}_hoe`});
+        event.remove({output:`${prefix}_helmet`});
+        event.remove({output:`${prefix}_chestplate`});
+        event.remove({output:`${prefix}_leggings`});
+        event.remove({output:`${prefix}_boots`});
+    });
 })
