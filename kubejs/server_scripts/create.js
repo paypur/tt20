@@ -26,6 +26,13 @@ ServerEvents.recipes(event => {
     event.remove({id: "tconstruct:compat/create/andesite_alloy_iron"});
 
     /*
+     * Block Breakers
+     */
+    event.replaceInput({output: 'create:mechanical_saw'}, "create:iron_sheet", "#forge:plates/steel");
+    event.replaceInput({output: 'create:mechanical_drill'}, "create:andesite_alloy", "#forge:ingots/steel");
+    event.replaceInput({output: 'create:mechanical_drill'}, "minecraft:iron_ingot", "#forge:ingots/osmium");
+
+    /*
      * Milling Compat
      * TODO: probably do more
      */
