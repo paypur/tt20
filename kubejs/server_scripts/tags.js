@@ -6,6 +6,10 @@ ServerEvents.tags('item', event => {
   event.add('kubejs:gearbox', 'create:gearbox');
   event.add('kubejs:gearbox', 'create:vertical_gearbox');
 
+  event.add('kubejs:furnace', 'minecraft:furnace');
+  event.add('kubejs:furnace', "quark:deepslate_furnace");
+  event.add('kubejs:furnace', "quark:blackstone_furnace");
+
   // adds crushed to dust tag
   ["iron", "gold", "copper", "zinc", "osmium", "tin", "lead", "uranium", "nickel"]
       .forEach(s => event.add(`forge:dusts/${s}`, `create:crushed_raw_${s}`));
