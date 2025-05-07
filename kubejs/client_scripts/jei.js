@@ -3,7 +3,7 @@ JEIEvents.hideItems(event => {
     [
         "minecraft:wooden", "minecraft:stone", "minecraft:iron", "minecraft:golden", "minecraft:diamond",
         "minecraft:netherite", "minecraft:leather", "minecraft:chainmail", "ae2:certus_quartz", "ae2:fluix",
-        "ae2:nether_quartz", "tfmg:steel", "tfmg:aluninum", "tfmg:lead"
+        "ae2:nether_quartz", "tfmg:steel", "tfmg:aluminum", "tfmg:lead"
     ].forEach((prefix) => {
         event.hide(`${prefix}_sword`);
         event.hide(`${prefix}_pickaxe`);
@@ -20,4 +20,7 @@ JEIEvents.hideItems(event => {
 JEIEvents.removeCategories(event => {
     // https://www.reddit.com/r/CreateMod/comments/1ceabxl/removing_bulk_blastingsmoking_recipies/
     event.remove("create:fan_blasting");
+    // event.remove("create:automatic_shaped");
+    // event.remove("create:automatic_shapeless");
+    event.remove("tfmg:casting");
 })

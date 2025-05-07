@@ -25,6 +25,26 @@ ServerEvents.recipes(event => {
     event.remove({id: "create:mixing/andesite_alloy"});
     event.remove({id: "tconstruct:compat/create/andesite_alloy_iron"});
 
+    event.remove({id: "create:filling/blaze_cake"});
+    event.custom({
+        "type": "create:filling",
+        "ingredients": [
+            {
+                "item": "create:blaze_cake_base"
+            },
+            {
+                "amount": 250,
+                "fluid": "tconstruct:blazing_blood",
+                "nbt": {}
+            }
+        ],
+        "results": [
+            {
+                "item": "create:blaze_cake"
+            }
+        ]
+    });
+
     /*
      * Block Breakers
      */
