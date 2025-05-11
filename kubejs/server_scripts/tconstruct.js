@@ -60,21 +60,43 @@ ServerEvents.recipes(event => {
     event.remove({id: 'tconstruct:smeltery/casting/scorched/stone_from_magma'})
     event.recipes.createMixing([Fluid.of("tconstruct:scorched_stone", 250)], [Fluid.of("tconstruct:magma", 250), "minecraft:soul_soil", "minecraft:gravel"]).heated();
 
+    event.remove({output: "tconstruct:scorched_alloyer"})
+    event.recipes.createMechanicalCrafting("tconstruct:scorched_alloyer", [
+        'GGDGG',
+        'GOMOG',
+        'DPNPD',
+        'SSCSS',
+        'SABAS',
+    ], {
+        A: 'mekanism:advanced_control_circuit',
+        B: 'minecraft:blast_furnace',
+        C: 'tfmg:steel_casing',
+        D: 'tconstruct:scorched_drain',
+        G: 'ae2:quartz_glass',
+        S: 'tconstruct:scorched_bricks',
+        O: 'tfmg:steel_cogwheel',
+        N: 'create:basin',
+        M: 'create:mechanical_mixer',
+        P: 'tfmg:steel_pipe'
+    })
+
+
     // TODO: change melting byproduct
     event.remove({output: 'tconstruct:foundry_controller'})
     event.recipes.createMechanicalCrafting('tconstruct:foundry_controller', [
         'NNNNN',
         'NGGGN',
-        'NACAN',
-        'SSSSS',
-        'SBBBS'
+        'NOCON',
+        'NABAN',
+        'SSSSS'
     ], {
         A: 'mekanism:advanced_control_circuit',
         B: 'minecraft:blast_furnace',
         C: 'tfmg:steel_casing',
         G: 'ae2:quartz_glass',
         N: 'tconstruct:nahuatl',
-        S: 'tconstruct:scorched_bricks'
+        S: 'tconstruct:scorched_bricks',
+        O: 'create:content_observer'
     })
 
     event.replaceInput({mod: 'tconstruct'}, 'minecraft:quartz', 'ae2:quartz_glass')
