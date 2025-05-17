@@ -36,24 +36,24 @@ ServerEvents.recipes(event => {
      * Standard Machines
      */
     const standard_machine_template = (machine, top, bottom) => {
-        event.remove({id: `${machine}`});
-        event.shaped(Item.of(`${machine}`), ['ATA', 'CDC', 'EBE'], {
-            A: 'minecraft:redstone',
-            C: 'mekanism:basic_control_circuit',
-            E: 'mekanism:ingot_osmium',
-            D: 'mekanism:steel_casing',
+        event.remove({output: `${machine}`});
+        event.shaped(Item.of(`${machine}`), ["ATA", "CDC", "EBE"], {
+            A: "minecraft:redstone",
+            C: "mekanism:basic_control_circuit",
+            E: "mekanism:ingot_osmium",
+            D: "mekanism:steel_casing",
             T: `${top}`,
             B: `${bottom}`
         });
     };
 
     // left <-> right
-    event.remove({id: "mekanism:metallurgic_infuser"});
-    event.shaped("mekanism:metallurgic_infuser", ['ACA', 'LDR', 'ECE'], {
-        A: 'minecraft:redstone',
-        C: 'mekanism:basic_control_circuit',
-        E: 'mekanism:ingot_osmium',
-        D: 'mekanism:steel_casing',
+    event.remove({output: "mekanism:metallurgic_infuser"});
+    event.shaped("mekanism:metallurgic_infuser", ["ACA", "LDR", "ECE"], {
+        A: "minecraft:redstone",
+        C: "mekanism:basic_control_circuit",
+        E: "mekanism:ingot_osmium",
+        D: "mekanism:steel_casing",
         L: "mekanism:basic_chemical_tank",
         R: "minecraft:blast_furnace"
     });
@@ -61,11 +61,45 @@ ServerEvents.recipes(event => {
     standard_machine_template("mekanism:energized_smelter", "minecraft:blast_furnace", "tfmg:copper_coil");
     standard_machine_template("mekanism:crusher", "create:mechanical_press", "mekanism:block_lead");
     standard_machine_template("mekanism:enrichment_chamber", "create:millstone", "create:encased_fan"); // 2x
-    standard_machine_template("mekanism:precision_sawmill", "create:mechanical_saw", 'mekanism:ingot_osmium');
+    standard_machine_template("mekanism:precision_sawmill", "create:mechanical_saw", "mekanism:ingot_osmium");
 
     // TODO: doesnt work
-    event.replaceInput({output: "mekanism:chemical_infuser"}, 'mekanism:basic_control_circuit', "mekanism:advanced_control_circuit");
-    event.replaceInput({output: "mekanism:chemical_infuser"}, 'mekanism:basic_chemical_tank', "mekanism:advanced_chemical_tank");
+    event.replaceInput({output: "mekanism:chemical_infuser"}, "mekanism:basic_control_circuit", "mekanism:advanced_control_circuit");
+    event.replaceInput({output: "mekanism:chemical_infuser"}, "mekanism:basic_chemical_tank", "mekanism:advanced_chemical_tank");
+
+    /* Tier Installers
+     */
+    event.remove({output: "mekanism:basic_tier_installer"});
+    event.shaped("mekanism:basic_tier_installer", ["RCR", "SHS", "RCR"], {
+        R: "minecraft:redstone",
+        C: "mekanism:basic_control_circuit",
+        S: "mekanism:steel_casing",
+        H: "mekanism:hdpe_sheet",
+    });
+
+    event.remove({output: "mekanism:advanced_tier_installer"});
+    event.shaped("mekanism:advanced_tier_installer", ["RCR", "SHS", "RCR"], {
+        R: "mekanism:alloy_infused",
+        C: "mekanism:advanced_control_circuit",
+        S: "mekanism:steel_casing",
+        H: "mekanism:hdpe_sheet",
+    });
+
+    event.remove({output: "mekanism:elite_tier_installer"});
+    event.shaped("mekanism:elite_tier_installer", ["RCR", "SHS", "RCR"], {
+        R: "mekanism:alloy_reinforced",
+        C: "mekanism:elite_control_circuit",
+        S: "mekanism:steel_casing",
+        H: "mekanism:hdpe_sheet",
+    });
+
+    event.remove({output: "mekanism:ultimate_tier_installer"});
+    event.shaped("mekanism:ultimate_tier_installer", ["RCR", "SHS", "RCR"], {
+        R: "mekanism:alloy_atomic",
+        C: "mekanism:ultimate_control_circuit",
+        S: "mekanism:steel_casing",
+        H: "mekanism:hdpe_sheet",
+    });
 
     /*
      * Teleportation
