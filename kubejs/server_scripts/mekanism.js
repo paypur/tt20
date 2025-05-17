@@ -11,97 +11,61 @@ ServerEvents.recipes(event => {
             event.remove({id: `mekanism:processing/${ore}/clump/from_raw_block`})
             event.remove({id: `mekanism:processing/${ore}/shard/from_raw_block`})
             event.remove({id: `mekanism:processing/${ore}/dust/from_raw_block`})
-        }
-    );
+        });
 
     event.remove({output: "mekanism:steel_casing"});
-    event.shaped(
-        Item.of("mekanism:steel_casing"),
-        [
-            "ABA",
-            "BCB",
-            "ABA"
-        ],
-        {
-            A: "mekanism:ingot_steel",
-            B: "mekanism:ingot_osmium",
-            C: "tfmg:steel_casing"
-        }
-    )
+    event.shaped(Item.of("mekanism:steel_casing"), ["ABA", "BCB", "ABA"], {
+        A: "mekanism:ingot_steel", B: "mekanism:ingot_osmium", C: "tfmg:steel_casing"
+    })
 
     /*
      * Circuits
      */
     event.remove({output: "mekanism:basic_control_circuit"});
-    event.shapeless(
-        "mekanism:basic_control_circuit",
-        ["create:electron_tube",
-            "tfmg:capacitor_",
-            "#forge:wires/copper",
-            "tfmg:resistor_"]
-    )
+    event.shapeless("mekanism:basic_control_circuit", ["create:electron_tube", "tfmg:capacitor_", "#forge:wires/copper", "tfmg:resistor_"]);
+
+    event.remove({id: "mekanism:metallurgic_infusing/alloy/infused"});
+    event.custom({
+        "type": "mekanism:metallurgic_infusing",
+        "chemicalInput": {"amount": 10, "tag": "mekanism:redstone"},
+        "itemInput": {"ingredient": {"item": "create:andesite_alloy"}},
+        "output": {"item": "mekanism:alloy_infused"}
+    })
 
     /*
-     * Basic Machines
+     * Standard Machines
      */
-    const basic_machine_template = (machine, top, bottom) => {
-        event.remove({output: `${machine}`});
-        event.shaped(
-            Item.of(`${machine}`),
-            [
-                'ATA',
-                'CDC',
-                'EBE'
-            ],
-            {
-                A: 'minecraft:redstone',
-                C: 'mekanism:basic_control_circuit',
-                E: 'mekanism:ingot_osmium',
-                D: 'mekanism:steel_casing',
-                T: `${top}`,
-                B: `${bottom}`
-            }
-        );
+    const standard_machine_template = (machine, top, bottom) => {
+        event.remove({id: `${machine}`});
+        event.shaped(Item.of(`${machine}`), ['ATA', 'CDC', 'EBE'], {
+            A: 'minecraft:redstone',
+            C: 'mekanism:basic_control_circuit',
+            E: 'mekanism:ingot_osmium',
+            D: 'mekanism:steel_casing',
+            T: `${top}`,
+            B: `${bottom}`
+        });
     };
 
-    event.remove({output: "mekanism:metallurgic_infuser"});
-    event.shaped(
-        Item.of("mekanism:metallurgic_infuser"),
-        [
-            "AEA",
-            "BDB",
-            "FCF"
-        ],
-        {
-            C: "mekanism:basic_chemical_tank",
-            D: "mekanism:steel_casing",
-            B: "mekanism:basic_control_circuit",
-            A: "minecraft:redstone",
-            F: "mekanism:ingot_osmium",
-            E: "minecraft:blast_furnace"
-        }
-    )
+    // left <-> right
+    event.remove({id: "mekanism:metallurgic_infuser"});
+    event.shaped("mekanism:metallurgic_infuser", ['ACA', 'LDR', 'ECE'], {
+        A: 'minecraft:redstone',
+        C: 'mekanism:basic_control_circuit',
+        E: 'mekanism:ingot_osmium',
+        D: 'mekanism:steel_casing',
+        L: "mekanism:basic_chemical_tank",
+        R: "minecraft:blast_furnace"
+    });
 
-    event.remove({output: "mekanism:energized_smelter"});
-    event.shaped(
-        Item.of('mekanism:energized_smelter'),
-        [
-            'ABA',
-            'CDC',
-            'EFE'
-        ],
-        {
-            D: 'mekanism:steel_casing',
-            C: 'mekanism:basic_control_circuit',
-            A: 'minecraft:redstone',
-            F: 'tfmg:copper_coil',
-            E: 'mekanism:ingot_osmium',
-            B: 'minecraft:blast_furnace'
-        }
-    )
+    standard_machine_template("mekanism:energized_smelter", "minecraft:blast_furnace", "tfmg:copper_coil");
+    standard_machine_template("mekanism:crusher", "create:mechanical_press", "mekanism:block_lead");
+    standard_machine_template("mekanism:enrichment_chamber", "create:millstone", "create:encased_fan"); // 2x
+    standard_machine_template("mekanism:precision_sawmill", "create:mechanical_saw", 'mekanism:ingot_osmium');
 
-    basic_machine_template("mekanism:crusher",  "create:mechanical_press", "mekanism:block_lead");
-    basic_machine_template("mekanism:enrichment_chamber",  "create:millstone", "create:encased_fan");
+    // TODO: doesnt work
+    event.replaceInput({output: "mekanism:chemical_infuser"}, 'mekanism:basic_control_circuit', "mekanism:advanced_control_circuit");
+    event.replaceInput({output: "mekanism:chemical_infuser"}, 'mekanism:basic_chemical_tank', "mekanism:advanced_chemical_tank");
 
     /*
      * Teleportation

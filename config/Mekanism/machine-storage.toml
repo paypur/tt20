@@ -2,49 +2,49 @@
 #Machine Energy Storage Config. This config is synced from server to client.
 [storage]
 	#Base energy storage (Joules).
-	enrichmentChamber = "25000" #!
+	enrichmentChamber = "25000"
 	#Base energy storage (Joules).
-	osmiumCompressor = "50000" #!
+	osmiumCompressor = "50000"
 	#Base energy storage (Joules).
-	combiner = "50000" #!
+	combiner = "50000"
 	#Base energy storage (Joules).
-	crusher = "25000" #!
+	crusher = "25000"
 	#Base energy storage (Joules).
-	metallurgicInfuser = "25000" #!
+	metallurgicInfuser = "25000"
 	#Base energy storage (Joules).
-	purificationChamber = "100000" #!
+	purificationChamber = "100000"
 	#Base energy storage (Joules).
-	energizedSmelter = "25000" #!
+	energizedSmelter = "25000"
 	#Base energy storage (Joules).
-	digitalMiner = "10000000" #!
+	digitalMiner = "5000000"
 	#Base energy storage (Joules).
-	electricPump = "50000" #!
+	electricPump = "50000"
 	#Base energy storage (Joules).
 	chargePad = "2048000"
 	#Base energy storage (Joules).
-	rotaryCondensentrator = "25000" #!
+	rotaryCondensentrator = "25000"
 	#Base energy storage (Joules).
-	oxidationChamber = "100000" #!
+	oxidationChamber = "100000"
 	#Base energy storage (Joules).
-	chemicalInfuser = "100000" #!
+	chemicalInfuser = "100000"
 	#Base energy storage (Joules).
-	chemicalInjectionChamber = "200000" #!
+	chemicalInjectionChamber = "200000"
 	#Base energy storage (Joules).
 	electrolyticSeparator = "160000"
 	#Base energy storage (Joules).
-	precisionSawmill = "25000" #!
+	precisionSawmill = "25000"
 	#Base energy storage (Joules).
-	chemicalDissolutionChamber = "400000" #!
+	chemicalDissolutionChamber = "400000"
 	#Base energy storage (Joules).
-	chemicalWasher = "400000" #!
+	chemicalWasher = "400000"
 	#Base energy storage (Joules).
-	chemicalCrystallizer = "400000" #!
+	chemicalCrystallizer = "400000"
 	#Base energy storage (Joules).
-	seismicVibrator = "25000" #!
+	seismicVibrator = "25000"
 	#Base energy storage (Joules).
-	pressurizedReactionBase = "2000"
+	pressurizedReactionBase = "50000"
 	#Base energy storage (Joules).
-	fluidicPlenisher = "50000" #!
+	fluidicPlenisher = "50000"
 	#Base energy storage (Joules).
 	laser = "2000000"
 	#Base energy storage (Joules).
@@ -52,11 +52,11 @@
 	#Base energy storage (Joules).
 	laserTractorBeam = "5000000000"
 	#Base energy storage (Joules).
-	formulaicAssemblicator = "50000" #!
+	formulaicAssemblicator = "50000"
 	#Base energy storage (Joules).
 	teleporter = "5000000"
 	#Base energy storage (Joules).
-	modificationStation = "50000" #!
+	modificationStation = "50000"
 	#Base energy storage (Joules).
 	isotopicCentrifuge = "80000"
 	#Base energy storage (Joules).
@@ -68,7 +68,7 @@
 	#Base energy storage (Joules).
 	pigmentMixer = "80000"
 	#Base energy storage (Joules).
-	paintingMachine = "50000" #!
+	paintingMachine = "50000"
 	#Base energy storage (Joules). Also defines max output rate.
 	spsPort = "1000000000"
 	#Base energy storage (Joules).
