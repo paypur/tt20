@@ -22,7 +22,7 @@ ServerEvents.recipes(event => {
      * Circuits
      */
     event.remove({output: "mekanism:basic_control_circuit"});
-    event.shapeless("mekanism:basic_control_circuit", ["create:electron_tube", "tfmg:capacitor_", "#forge:wires/copper", "tfmg:resistor_"]);
+    event.shapeless("mekanism:basic_control_circuit", ["create:electron_tube", "tfmg:capacitor_", "projectred_core:plate", "tfmg:resistor_"]);
 
     event.remove({id: "mekanism:metallurgic_infusing/alloy/infused"});
     event.custom({
