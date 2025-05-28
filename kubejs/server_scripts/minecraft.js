@@ -11,7 +11,7 @@ ServerEvents.recipes(event => {
             })
             event.remove({
                 output: tag,
-                not: [{mod:"alexscaves"}, {mod: "tconstruct"}, {mod: "draconicevolution"}, {mod: "mekanism"}, {mod: "create"}, {mod: "cataclysm"}]
+                not: [{mod:"alexscaves"}, {mod: "tconstruct"}, {mod: "draconicevolution"}, {mod: "mekanism"}, {mod: "create"}, {mod: "cataclysm"}, {mod: "blue_skies"}]
             })
         });
 

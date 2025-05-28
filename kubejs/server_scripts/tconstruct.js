@@ -100,11 +100,11 @@ ServerEvents.recipes(event => {
     })
 
     event.replaceInput({mod: 'tconstruct'}, 'minecraft:quartz', 'ae2:quartz_glass')
-    event.replaceInput({output: 'tconstruct:scorched_duct'}, 'minecraft:gold_ingot', '#forge:ingots/cobalt');
+    // event.replaceInput({output: 'tconstruct:scorched_duct'}, 'minecraft:gold_ingot', '#forge:ingots/cobalt');
     // wont working without assigning idk
     // TODO: change melting byproduct
-    ["tconstruct:scorched_chute", "tconstruct:scorched_drain"]
-        .forEach(s => event.replaceInput({output: s}, 'tconstruct:obsidian_pane', "tconstruct:nahuatl"));
+    // ["tconstruct:scorched_chute", "tconstruct:scorched_drain"]
+    //     .forEach(s => event.replaceInput({output: s}, 'tconstruct:obsidian_pane', "tconstruct:nahuatl"));
 
     /*
      * Modifiers
