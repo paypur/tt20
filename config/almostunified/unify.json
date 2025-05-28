@@ -2,11 +2,10 @@
   "modPriorities": [
     "minecraft",
     "kubejs",
-    "crafttweaker",
+    "mekanism",
     "create",
-    "thermal",
-    "immersiveengineering",
-    "mekanism"
+    "tconstruct",
+    "tfmg"
   ],
   "stoneStrata": [
     "stone",
