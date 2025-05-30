@@ -2,17 +2,32 @@
 
 ServerEvents.recipes(event => {
     const replace = (replace, recipe, dict) => {
-        event.remove({output: replace})
+        event.remove({id: replace})
         event.shaped(Item.of(replace, 1), recipe, dict)
     };
 
-    replace('create:cogwheel', [" B ", "BSB", " B "], {B: "#minecraft:wooden_buttons", S: "create:shaft"},);
-
+    replace('create:cogwheel', [" B ", "BSB", " B "], {
+        B: "#minecraft:wooden_buttons",
+        S: "create:shaft"
+    });
     replace('create:large_cogwheel', ["BPB", "PSP", "BPB"], {
         B: "#minecraft:wooden_buttons",
         P: "#minecraft:planks",
         S: "create:shaft"
     });
+
+    // no more rng
+    event.remove({output: 'create:precision_mechanism'});
+    let inter = "create:incomplete_precision_mechanism";
+    event.recipes.create.sequenced_assembly(
+        ['create:precision_mechanism'],
+        'create:brass_sheet', [ // input
+            event.recipes.createDeploying(inter, [inter, "create:cogwheel"]),
+            event.recipes.createDeploying(inter, [inter, "create:large_cogwheel"]),
+            event.recipes.createDeploying(inter, [inter, "minecraft:iron_nugget"]),
+        ]
+    ).transitionalItem(inter)
+    .loops(5);
 
     event.remove({id: "create:crafting/kinetics/large_cogwheel_from_little"});
     event.shaped('create:large_cogwheel', [" P ", "PSP", " P "], {P: "#minecraft:planks", S: "create:cogwheel"},);
@@ -45,6 +60,12 @@ ServerEvents.recipes(event => {
         ]
     });
 
+    /* Missing Metal Plates
+     */
+    ["aluminum", "constantan", "lead", "nickel", "silver", "steel"]
+        .forEach(s => event.recipes.create.pressing(`kubejs:metal_plate_${s}`, `#forge:ingots/${s}`));
+    event.remove({id: "tfmg:sequenced_assembly/heavy_plate"});
+
     /*
      * Block Breakers
      */
@@ -61,5 +82,5 @@ ServerEvents.recipes(event => {
     // event.recipes.create.milling('create:crushed_raw_tin', '#forge:ingots/tin')
     ["iron", "gold", "copper", "zinc", "osmium", "tin", "lead", "uranium", "nickel"].forEach(ore =>
         event.recipes.create.milling(`create:crushed_raw_${ore}`, `#forge:raw_materials/${ore}`)
-    )
+    );
 })

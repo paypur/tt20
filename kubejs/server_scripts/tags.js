@@ -10,6 +10,10 @@ ServerEvents.tags('item', event => {
   event.add('kubejs:furnace', "quark:deepslate_furnace");
   event.add('kubejs:furnace', "quark:blackstone_furnace");
 
+  // add plates to tags
+  ["aluminum", "constantan", "lead", "nickel", "silver", "steel"]
+      .forEach((s) => event.add(`forge:plates/${s}`, `kubejs:metal_plate_${s}`));
+
   // adds crushed to dust tag
   ["iron", "gold", "copper", "zinc", "osmium", "tin", "lead", "uranium", "nickel"]
       .forEach(s => event.add(`forge:dusts/${s}`, `create:crushed_raw_${s}`));
