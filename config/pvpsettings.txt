@@ -165,7 +165,7 @@ infoDisplay:light_overlay_indicator:true:15:-1
 infoDisplay:manual_cave_mode_indicator:true:15:-1
 infoDisplay:custom_sub_world:true:15:-1
 module;id=xaerominimap:minimap;active=true;x=0;y=0;centered=false;fromRight=true;fromBottom=false;flippedVer=false;flippedHor=false;
-module;id=xaerobetterpvp:status_effects;active=true;x=0;y=61;centered=true;fromRight=false;fromBottom=true;flippedVer=false;flippedHor=false;
+module;id=xaerobetterpvp:status_effects;active=true;x=0;y=72;centered=true;fromRight=false;fromBottom=true;flippedVer=false;flippedHor=false;
 module;id=xaerobetterpvp:armor_status;active=true;x=0;y=-25;centered=true;fromRight=false;fromBottom=true;flippedVer=false;flippedHor=false;
 module;id=xaerobetterpvp:xp_drops;active=false;x=0;y=0;centered=true;fromRight=false;fromBottom=true;flippedVer=false;flippedHor=false;
 module;id=xaerobetterpvp:notifications;active=false;x=0;y=58;centered=true;fromRight=false;fromBottom=false;flippedVer=false;flippedHor=false;

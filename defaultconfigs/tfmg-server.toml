@@ -58,7 +58,7 @@
 		compact_engine = 20.0
 		turbine_engine = 256.0
 		low_grade_fuel_engine = 10.0
-		gasoline_engine = 256.0
+		gasoline_engine = 1024.0
 		lpg_engine = 256.0
 		electric_motor = 48.0
 		radial_engine = 95.0
