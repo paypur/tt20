@@ -2,7 +2,7 @@
 
 ServerEvents.recipes(event => {
     const replace = (replace, recipe, dict) => {
-        event.remove({id: replace})
+        event.remove({output: replace})
         event.shaped(Item.of(replace, 1), recipe, dict)
     };
 
@@ -15,6 +15,11 @@ ServerEvents.recipes(event => {
         P: "#minecraft:planks",
         S: "create:shaft"
     });
+
+    event.remove({output: "create:sail_frame"});
+    event.shaped("4x create:sail_frame", ["ASA", "S S", "ASA"], {A: "create:andesite_alloy", S: "#forge:stick"});
+    event.remove({output: "create:white_sail"});
+    event.shapeless("create:white_sail", ["create:sail_frame", "projectred_core:woven_cloth"]);
 
     // no more rng
     event.remove({output: 'create:precision_mechanism'});

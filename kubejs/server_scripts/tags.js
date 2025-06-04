@@ -26,7 +26,11 @@ ServerEvents.tags('item', event => {
 
 // https://www.reddit.com/r/CreateMod/comments/1ceabxl/comment/mjyy56s
 ServerEvents.tags('block', event => {
-  event.removeAll('create:fan_processing_catalysts/blasting');
+  event.removeAll("create:fan_processing_catalysts/blasting");
+
+  event.removeAll("create:windmill_sails");
+  event.add("create:windmill_sails", "create:white_sail");
+  // event.add("create:windmill_sails", "create:sail_frame");
 })
 
 ServerEvents.tags('fluid', event => {
