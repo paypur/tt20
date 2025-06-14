@@ -15,6 +15,22 @@ JEIEvents.hideItems(event => {
         event.hide(`${prefix}_leggings`);
         event.hide(`${prefix}_boots`);
     });
+
+    ["amethyst", "apatite", "azure_silver", "bismuth", "bort", "cinnabar", "crimson_iron", "desh", "dilithium",
+        "electrotine", "green_sapphire", "iridium", "niter", "peridot", "platinum", "ruby", "sapphire", "ostrum",
+        "calorite", "titanium", "tungsten", "coal", "lapis", "diamond", "redstone", "emerald", "quartz"]
+        .forEach(o => {
+            event.hide(`moremekanismprocessing:crystal_${o}`);
+            event.hide(`moremekanismprocessing:shard_${o}`);
+            event.hide(`moremekanismprocessing:clump_${o}`);
+            event.hide(`moremekanismprocessing:dirty_dust_${o}`);
+            event.hide(`moremekanismprocessing:dust_${o}`);
+            event.hide(`moremekanismprocessing:clean_${o}`);
+            event.hide(`moremekanismprocessing:dirty_${o}`);
+            event.hide(`moremekanismprocessing:gem_${o}`);
+            event.hide(`moremekanismprocessing:${o}_ingot`);
+            event.hide(`moremekanismprocessing:${o}_nugget`);
+        });
 })
 
 JEIEvents.removeCategories(event => {
