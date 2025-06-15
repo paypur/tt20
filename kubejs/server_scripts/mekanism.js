@@ -32,6 +32,14 @@ ServerEvents.recipes(event => {
         "output": {"item": "mekanism:alloy_infused"}
     })
 
+    /* Power Generation
+     */
+    event.replaceInput({id: "mekanismgenerators:generator/heat"}, "minecraft:copper_ingot", "#forge:plates/copper");
+    event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#minecraft:planks", "#forge:plates/copper");
+    event.replaceInput({id: "mekanismgenerators:generator/heat"}, "mekanism:ingot_osmium", "mekanism:steel_casing");
+    event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#kubejs:furnace", "minecraft:blast_furnace");
+
+
     /*
      * Standard Machines
      */
