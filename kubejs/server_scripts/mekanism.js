@@ -18,19 +18,36 @@ ServerEvents.recipes(event => {
         A: "mekanism:ingot_steel", B: "mekanism:ingot_osmium", C: "tfmg:steel_casing"
     })
 
-    /*
-     * Circuits
+    /* Circuits
      */
     event.remove({output: "mekanism:basic_control_circuit"});
     event.shapeless("mekanism:basic_control_circuit", ["create:electron_tube", "tfmg:capacitor_", "projectred_core:plate", "tfmg:resistor_"]);
 
+    /* Alloys
+     */
     event.remove({id: "mekanism:metallurgic_infusing/alloy/infused"});
     event.custom({
         "type": "mekanism:metallurgic_infusing",
         "chemicalInput": {"amount": 10, "tag": "mekanism:redstone"},
         "itemInput": {"ingredient": {"item": "create:andesite_alloy"}},
         "output": {"item": "mekanism:alloy_infused"}
-    })
+    });
+
+    event.remove({id: "mekanism:metallurgic_infusing/alloy/reinforced"});
+    event.custom({
+        "type": "mekanism:metallurgic_infusing",
+        "chemicalInput": {"amount": 20, "tag": "mekanism:diamond"},
+        "itemInput": {"ingredient": {"item": "tconstruct:slimesteel_ingot"}},
+        "output": {"item": "mekanism:alloy_reinforced"}
+    });
+
+    event.remove({id: "mekanism:metallurgic_infusing/alloy/atomic"});
+    event.custom({
+        "type": "mekanism:metallurgic_infusing",
+        "chemicalInput": {"amount": 40, "tag": "mekanism:refined_obsidian"},
+        "itemInput": {"ingredient": {"item": "tconstruct:manyullyn_ingot"}},
+        "output": {"item": "mekanism:alloy_atomic"}
+    });
 
     /* Power Generation
      */
@@ -39,9 +56,53 @@ ServerEvents.recipes(event => {
     event.replaceInput({id: "mekanismgenerators:generator/heat"}, "mekanism:ingot_osmium", "mekanism:steel_casing");
     event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#kubejs:furnace", "minecraft:blast_furnace");
 
+    event.remove({output: "mekanismgenerators:solar_panel"});
+    event.shaped(
+        "mekanismgenerators:solar_panel",
+        ["G", "S", "R"],
+        { G: "#forge:glass_panes", S: "enderio:photovoltaic_plate", R: "minecraft:redstone"}
+    );
 
-    /*
-     * Standard Machines
+    event.remove({output: "mekanismgenerators:solar_generator"});
+    event.shaped(
+        "mekanismgenerators:solar_generator",
+        ["PPP", " I "],
+        {P: "mekanismgenerators:solar_panel", I: "mekanism:alloy_infused"}
+    );
+
+    event.remove({output: "mekanismgenerators:advanced_solar_generator"})
+    event.recipes.createMechanicalCrafting("mekanismgenerators:advanced_solar_generator", [
+        " G G ",
+        " GSG ",
+        "  S  ",
+        "  S  ",
+        " ECE "
+    ], {
+        C: "mekanism:steel_casing",
+        E: "mekanism:energy_tablet",
+        S: "#forge:ingots/steel",
+        G: "mekanismgenerators:solar_generator"
+    });
+
+    event.remove({output: "mekanismgenerators:wind_generator"})
+    event.recipes.createMechanicalCrafting("mekanismgenerators:wind_generator", [
+        "    A",
+        "   A ",
+        "AAI  ",
+        "  BA ",
+        "  S A",
+        "  S  ",
+        " ECE ",
+    ], {
+        A: "#forge:plates/aluminum",
+        B: "create:windmill_bearing",
+        C: "mekanism:steel_casing",
+        E: "mekanism:energy_tablet",
+        I: "mekanism:alloy_infused",
+        S: "#forge:ingots/steel"
+    });
+
+    /* Standard Machines
      */
     const standard_machine_template = (machine, top, bottom) => {
         event.remove({output: `${machine}`});
