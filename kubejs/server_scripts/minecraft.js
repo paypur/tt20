@@ -16,7 +16,7 @@ ServerEvents.recipes(event => {
         });
 
     // stuff missed by tag
-    ["tfmg:steel", "tfmg:aluninum", "tfmg:lead"]
+    ["tfmg:steel", "tfmg:aluminum", "tfmg:lead"]
         .forEach((prefix) => {
         event.remove({output:`${prefix}_sword`});
         event.remove({output:`${prefix}_pickaxe`});
