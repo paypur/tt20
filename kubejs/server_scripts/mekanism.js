@@ -1,4 +1,9 @@
 ServerEvents.recipes(event => {
+    const replace = (id, craft, map) => {
+        event.remove({output: id});
+        event.shaped(id, craft, map);
+    }
+
     // make ore processing require ore block
     // mek only has vanilla and own ores
     ["iron", "gold", "copper", "zinc", "nickel", "osmium", "tin", "lead", "uranium", "cobalt"]
@@ -56,19 +61,30 @@ ServerEvents.recipes(event => {
     event.replaceInput({id: "mekanismgenerators:generator/heat"}, "mekanism:ingot_osmium", "mekanism:steel_casing");
     event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#kubejs:furnace", "minecraft:blast_furnace");
 
-    event.remove({output: "mekanismgenerators:solar_panel"});
-    event.shaped(
+    replace(
         "mekanismgenerators:solar_panel",
         ["G", "S", "R"],
         { G: "#forge:glass_panes", S: "enderio:photovoltaic_plate", R: "minecraft:redstone"}
     );
 
-    event.remove({output: "mekanismgenerators:solar_generator"});
-    event.shaped(
+    replace(
         "mekanismgenerators:solar_generator",
         ["PPP", " I "],
         {P: "mekanismgenerators:solar_panel", I: "mekanism:alloy_infused"}
     );
+
+    replace(
+        "mekanismgenerators:bio_generator",
+        ["ACA", "BDB", "EZE"],
+        {
+            A: "minecraft:redstone",
+            B: "mekanism:bio_fuel",
+            C: "mekanism:basic_control_circuit",
+            E: "mekanism:ingot_osmium",
+            D: "mekanism:steel_casing",
+            Z: "minecraft:blast_furnace"
+        }
+    )
 
     event.remove({output: "mekanismgenerators:advanced_solar_generator"})
     event.recipes.createMechanicalCrafting("mekanismgenerators:advanced_solar_generator", [
@@ -133,8 +149,8 @@ ServerEvents.recipes(event => {
     standard_machine_template("mekanism:precision_sawmill", "create:mechanical_saw", "mekanism:ingot_osmium");
 
     // TODO: doesnt work
-    event.replaceInput({output: "mekanism:chemical_infuser"}, "mekanism:basic_control_circuit", "mekanism:advanced_control_circuit");
-    event.replaceInput({output: "mekanism:chemical_infuser"}, "mekanism:basic_chemical_tank", "mekanism:advanced_chemical_tank");
+    event.replaceInput({id: "mekanism:chemical_infuser"}, "mekanism:basic_control_circuit", "mekanism:advanced_control_circuit");
+    event.replaceInput({id: "mekanism:chemical_infuser"}, "mekanism:basic_chemical_tank", "mekanism:advanced_chemical_tank");
 
     /* Tier Installers
      */
