@@ -52,7 +52,7 @@ ServerEvents.recipes(event => {
 
     event.custom({
         "type": "tconstruct:casting_table", "cast": {
-            "tag": "tconstruct:casts/multi_use/plate"
+            "tag": "tconstruct:casts/multi_use/ingot"
         }, "cooling_time": 60, "fluid": {
             "amount": 90, "fluid": "tfmg:molten_plastic"
         }, "result": {
@@ -60,38 +60,70 @@ ServerEvents.recipes(event => {
         }
     })
 
-    event.remove({id: "sequenced_assembly/unfinished_circuit_board"});
+    event.remove({id: "tfmg:sequenced_assembly/unfinished_circuit_board"});
     event.custom({
-        "type": "create:sequenced_assembly", "ingredient": {
-            "item": "tfmg:etched_circuit_board"
-        }, "loops": 1, "results": [{
-            "item": "mekanism:basic_control_circuit"
-        }], "sequence": [{
-            "type": "create:deploying", "ingredients": [{
-                "item": "tfmg:unfinished_circuit_board"
-            }, {
-                "item": "tfmg:transistor_item"
-            }], "results": [{
-                "item": "tfmg:unfinished_circuit_board"
-            }]
+        "type": "create:sequenced_assembly",
+        "ingredient": { "item": "tfmg:etched_circuit_board" },
+        "loops": 1,
+        "results": [{ "item": "mekanism:basic_control_circuit" }],
+        "sequence": [{
+            "type": "create:deploying",
+            "ingredients": [{ "item": "tfmg:unfinished_circuit_board" }, { "item": "tfmg:transistor_item" }],
+            "results": [{ "item": "tfmg:unfinished_circuit_board" }]
         }, {
-            "type": "create:deploying", "ingredients": [{
-                "item": "tfmg:unfinished_circuit_board"
-            }, {
-                "item": "tfmg:resistor"
-            }], "results": [{
-                "item": "tfmg:unfinished_circuit_board"
-            }]
+            "type": "create:deploying", "ingredients": [{ "item": "tfmg:unfinished_circuit_board" }, { "item": "tfmg:resistor" }],
+            "results": [{  "item": "tfmg:unfinished_circuit_board" }]
         }, {
-            "type": "create:deploying", "ingredients": [{
-                "item": "tfmg:unfinished_circuit_board"
-            }, {
-                "item": "tfmg:capacitor_item"
-            }], "results": [{
-                "item": "tfmg:unfinished_circuit_board"
-            }]
-        }], "transitionalItem": {
-            "item": "tfmg:unfinished_circuit_board"
-        }
+            "type": "create:deploying", "ingredients": [{ "item": "tfmg:unfinished_circuit_board" }, { "item": "tfmg:capacitor_item" }],
+            "results": [{ "item": "tfmg:unfinished_circuit_board" }]
+        }, {
+            "type": "create:deploying", "ingredients": [{ "item": "tfmg:unfinished_circuit_board" }, { "tag": "forge:nuggets/tin" }],
+            "results": [{ "item": "tfmg:unfinished_circuit_board" }]
+        }],
+        "transitionalItem": {  "item": "tfmg:unfinished_circuit_board" }
     })
+
+    event.remove({id: "tfmg:coking/coal"});
+    event.custom({
+        "type": "tfmg:coking",
+        "ingredients": [{"item": "minecraft:coal"}],
+        "processingTime": 1200,
+        "results": [{"item": "#forge:coal_coke"}, {"amount": 50, "fluid": "tfmg:creosote"}, {"amount": 25, "fluid": "tfmg:carbon_dioxide"}]
+    });
+
+    event.remove({id: "tfmg:vat_machine_recipe/sulfuric_acid"});
+    event.custom({
+        "type": "tfmg:vat_machine_recipe",
+        "allowedVatTypes": [
+            "tfmg:steel_vat",
+            "tfmg:firebrick_lined_vat"
+        ],
+        "ingredients": [
+            { "item": "tfmg:sulfur_dust" },
+            { "item": "tfmg:sulfur_dust" },
+            { "item": "tfmg:nitrate_dust" },
+            { "amount": 100, "fluid": "minecraft:water" }
+        ],
+        "machines": [ "tfmg:mixing" ],
+        "minSize": 1,
+        "results": [{ "amount": 100, "fluid": "mekanism:sulfuric_acid" }]
+    })
+
+    event.remove({id: "tfmg:vat_machine_recipe/etched_circuit_board"});
+    event.custom({
+        "type": "tfmg:vat_machine_recipe",
+        "allowedVatTypes": [
+            "tfmg:steel_vat",
+            "tfmg:cast_iron_vat",
+            "tfmg:firebrick_lined_vat"
+        ],
+        "ingredients": [
+            { "item": "tfmg:coated_circuit_board" },
+            { "amount": 100, "fluid": "mekanism:sulfuric_acid" }
+        ],
+        "minSize": 1,
+        "processingTime": 100,
+        "results": [{ "item": "tfmg:etched_circuit_board" }]
+    })
+
 });

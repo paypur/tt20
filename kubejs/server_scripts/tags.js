@@ -49,6 +49,8 @@ ServerEvents.tags('block', event => {
 ServerEvents.tags('fluid', event => {
     event.removeAll('create:fan_processing_catalysts/blasting');
 
+    event.removeAllTagsFrom("tfmg:molten_steel");
+
     // fluid specific
     ["amethyst", "apatite", "azure_silver", "bismuth", "bort", "cinnabar", "crimson_iron", "desh", "dilithium",
         "electrotine", "green_sapphire", "iridium", "niter", "peridot", "platinum", "ruby", "sapphire", "ostrum",

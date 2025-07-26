@@ -1,11 +1,12 @@
 {
   "modPriorities": [
     "minecraft",
-    "kubejs",
     "mekanism",
+    "immersiveengineering",
     "create",
     "tconstruct",
-    "tfmg"
+    "tfmg",
+    "draconicevolution"
   ],
   "stoneStrata": [
     "stone",
