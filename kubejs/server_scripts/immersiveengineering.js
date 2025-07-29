@@ -4,4 +4,6 @@ ServerEvents.recipes(event => {
     event.remove({type: "immersiveengineering:coke_oven"});
 
     event.replaceInput({output: "immersiveengineering:blastbrick"}, "#forge:ingots/brick", "tfmg:fireproof_brick");
+
+    event.remove({id: /immersiveengineering:crafting\/(raw_)?hammercrushing_.*/ });
 });
