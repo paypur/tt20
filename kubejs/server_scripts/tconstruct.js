@@ -8,10 +8,6 @@ ServerEvents.recipes(event => {
         event.shaped(Item.of(replace, 1), recipe, dict)
     };
 
-    replace('tconstruct:travelers_helmet', [' C ', 'ABA'], {
-        A: 'minecraft:glass_pane', B: '#forge:ingots/copper', C: 'minecraft:string'
-    });
-
     event.replaceInput({output: 'tconstruct:travelers_helmet'}, 'minecraft:leather', '#kubejs:leather');
     event.replaceInput({output: 'tconstruct:travelers_chestplate'}, 'minecraft:leather', '#kubejs:leather');
     event.replaceInput({output: 'tconstruct:travelers_leggings'}, 'minecraft:leather', '#kubejs:leather');
@@ -127,22 +123,5 @@ ServerEvents.recipes(event => {
             "tag": "tconstruct:modifiable/durability"
         }
     })
-
-    // event.remove({id:'tconstruct:tools/modifiers/upgrade/netherite'})
-    // // for this code to work, kubejs:incomplete_spore_blossom needs to be added to the game
-    // let inter = 'kubejs:incomplete_spore_blossom' // making a variable to store the transitional item makes the code more readable
-    // event.recipes.create.sequenced_assembly([
-    //     'minecraft:dark_oak_leaves'
-    // ], 'minecraft:flowering_azalea_leaves', [ // 'minecraft:flowering_azalea_leaves' is the input
-    //     // the transitional item is a variable, that is 'kubejs:incomplete_spore_blossom' and is used during the intermediate stages of the assembly
-    //     event.recipes.createPressing(inter, inter),
-    //     // like a normal recipe function, is used as a sequence step in this array. Input and output have the transitional item
-    //     event.recipes.createDeploying(inter, [inter, 'minecraft:hanging_roots']),
-    //     event.recipes.createFilling(inter, [inter, Fluid.water(420)]),
-    //     event.recipes.createDeploying(inter, [inter, 'minecraft:moss_carpet']),
-    //     event.recipes.createCutting(inter, inter)
-    // ]).transitionalItem(inter).loops(2) // set the transitional item and the number of loops
-
-
 
 })

@@ -1,4 +1,9 @@
 ServerEvents.recipes(event => {
+    const replace = (replace, recipe, dict) => {
+        event.remove({output: replace})
+        event.shaped(Item.of(replace, 1), recipe, dict)
+    };
+
     event.remove({id: "minecraft:netherite_ingot"});
 
     ["#minecraft:swords", "#minecraft:pickaxes", "#minecraft:axes", "#minecraft:shovels",
@@ -11,7 +16,7 @@ ServerEvents.recipes(event => {
             })
             event.remove({
                 output: tag,
-                not: [{mod:"alexscaves"}, {mod: "tconstruct"}, {mod: "draconicevolution"}, {mod: "mekanism"}, {mod: "create"}, {mod: "cataclysm"}, {mod: "blue_skies"}]
+                not: [{mod: "alexscaves"}, {mod: "tconstruct"}, {mod: "draconicevolution"}, {mod: "mekanism"}, {mod: "create"}, {mod: "cataclysm"}, {mod: "blue_skies"}]
             })
         });
 
@@ -29,23 +34,20 @@ ServerEvents.recipes(event => {
         event.remove({output:`${prefix}_boots`});
     });
 
-    /*
-     * Furnaces
+    /* Furnaces
      */
     event.replaceInput({input: "minecraft:furnace"}, "minecraft:furnace", "#kubejs:furnace");
 
-    event.remove({output: "minecraft:blast_furnace"});
-    event.shaped(
-        Item.of('minecraft:blast_furnace'),
+    replace("minecraft:blast_furnace",
         [
-            'AAA',
-            'ABA',
-            'CCC'
+            "AAA",
+            "ABA",
+            "CCC"
         ],
         {
-            A: 'minecraft:iron_ingot',
-            C: 'minecraft:smooth_stone',
-            B: '#kubejs:furnace'
+            A: "minecraft:iron_ingot",
+            C: "minecraft:smooth_stone",
+            B: "#kubejs:furnace"
         }
     )
 })

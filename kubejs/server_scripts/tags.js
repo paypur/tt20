@@ -35,6 +35,8 @@ ServerEvents.tags('item', event => {
             event.removeAllTagsFrom(`moremekanismprocessing:${o}_ingot`);
             event.removeAllTagsFrom(`moremekanismprocessing:${o}_nugget`);
         });
+
+    event.add('quark:revertable_chests', '#woodwevegot:chests');
 })
 
 // https://www.reddit.com/r/CreateMod/comments/1ceabxl/comment/mjyy56s
