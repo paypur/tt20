@@ -22,20 +22,20 @@ ServerEvents.recipes(event => {
     event.blasting('tconstruct:clear_glass', 'minecraft:glass');
 
 
-    event.shapeless(
-        Item.of('mekanism:dust_bronze', 4),
-        [
-            '3x #forge:dusts/copper',
-            '#forge:dusts/tin'
-        ]
-    )
+    // event.shapeless(Item.of('mekanism:dust_bronze', 4), ['3x #forge:dusts/copper', '#forge:dusts/tin'])
 
-    // event.recipes.createMixing([Fluid.of('tconstruct:molten_bronze', 360)], [Fluid.of('tconstruct:molten_copper', 270), Fluid.of('tconstruct:molten_tin', 90)]).heated();
-    // event.recipes.createMixing([Fluid.of('tconstruct:molten_amethyst_bronze', 90)], [Fluid.of('tconstruct:molten_copper', 90), Fluid.of('tconstruct:molten_amethyst', 100)]).heated();
+    event.recipes.createMixing([Fluid.of('tconstruct:molten_slimesteel', 180)], [Fluid.of('tconstruct:molten_iron', 90), Fluid.of('tconstruct:sky_slime', 250), Fluid.of('tconstruct:seared_stone', 250)]).heated();
+    event.recipes.createMixing([Fluid.of('tconstruct:molten_amethyst_bronze', 90)], [Fluid.of('tconstruct:molten_copper', 90), Fluid.of('tconstruct:molten_amethyst', 100)]).heated();
+    event.recipes.createMixing([Fluid.of('tconstruct:molten_rose_gold', 180)], [Fluid.of('tconstruct:molten_copper', 90), Fluid.of('tconstruct:molten_gold', 90)]).heated();
+    event.recipes.createMixing([Fluid.of('tconstruct:molten_bronze', 360)], [Fluid.of('tconstruct:molten_copper', 270), Fluid.of('tconstruct:molten_tin', 90)]).heated();
+    event.recipes.createMixing([Fluid.of('tconstruct:molten_invar', 270)], [Fluid.of('tconstruct:molten_iron', 180), Fluid.of('tconstruct:molten_nickel', 90)]).heated();
+    event.recipes.createMixing([Fluid.of('tconstruct:molten_constantan', 180)], [Fluid.of('tconstruct:molten_copper', 90), Fluid.of('tconstruct:molten_nickel', 90)]).heated();
+    event.recipes.createMixing([Fluid.of('tconstruct:molten_pewter', 270)], [Fluid.of('tconstruct:molten_tin', 180), Fluid.of('tconstruct:molten_lead', 90)]).heated();
+    event.recipes.createMixing([Fluid.of('tconstruct:molten_brass', 180)], [Fluid.of('tconstruct:molten_copper', 90), Fluid.of('tconstruct:molten_zinc', 90)]).heated();
 
     replace('tconstruct:smeltery_controller', ['BBB', 'BGB', 'SFS'], {
         B: '#forge:ingots/bronze',
-        G: 'tconstruct:clear_glass',
+        G: 'create:precision_mechanism',
         S: 'tconstruct:seared_bricks',
         F: 'minecraft:blast_furnace'
     });
@@ -46,8 +46,7 @@ ServerEvents.recipes(event => {
     // TODO: change melting byproduct
     // ["tconstruct:seared_chute", "tconstruct:seared_drain"]
     //     .forEach((s) => event.replaceInput({output: s}, 'minecraft:copper_ingot', '#forge:ingots/bronze'));
-    /*
-     * Foundry
+    /* Foundry
      */
     event.remove({id: 'tconstruct:smeltery/scorched/scorched_brick'})
     event.remove({id: 'tconstruct:smeltery/scorched/scorched_brick_kiln'})
