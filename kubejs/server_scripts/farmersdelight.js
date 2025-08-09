@@ -6,4 +6,8 @@ ServerEvents.recipes(event => {
            B: "#minecraft:wooden_buttons",
            C: "minecraft:cauldron"
         })
+
+    event.remove({output: "farmersdelight:fried_egg"});
+    event.smelting("farmersdelight:fried_egg", "#forge:eggs").xp(0.35);
+    event.smoking("farmersdelight:fried_egg", "#forge:eggs").xp(0.35);
 })
