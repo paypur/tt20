@@ -68,7 +68,7 @@ ServerEvents.recipes(event => {
         "results": [{ "item": "mekanism:basic_control_circuit" }],
         "sequence": [{
             "type": "create:deploying",
-            "ingredients": [{ "item": "tfmg:unfinished_circuit_board" }, { "item": "tfmg:transistor_item" }],
+            "ingredients": [{ "item": "tfmg:unfinished_circuit_board" }, { "tag": "immersiveengineering:circuits/logic" }],
             "results": [{ "item": "tfmg:unfinished_circuit_board" }]
         }, {
             "type": "create:deploying", "ingredients": [{ "item": "tfmg:unfinished_circuit_board" }, { "item": "tfmg:resistor" }],

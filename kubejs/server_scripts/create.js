@@ -82,10 +82,14 @@ ServerEvents.recipes(event => {
      * Milling Compat
      * TODO: probably do more
      */
-
-    // event.recipes.create.milling('create:crushed_raw_iron', '#forge:ingots/iron')
-    // event.recipes.create.milling('create:crushed_raw_tin', '#forge:ingots/tin')
     ["iron", "gold", "copper", "zinc", "osmium", "tin", "lead", "uranium", "nickel"].forEach(ore =>
         event.recipes.create.milling(`create:crushed_raw_${ore}`, `#forge:raw_materials/${ore}`)
     );
+
+    event.replaceInput({output: "create:electron_tube"}, "#forge:plates/iron", "#forge:plates/nickel");
+    event.replaceInput({}, "create:electron_tube", "#immersiveengineering:circuits/logic");
 })
+
+ServerEvents.tags('item', event => {
+    event.add('immersiveengineering:circuits/logic', 'create:electron_tube');
+});

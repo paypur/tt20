@@ -146,7 +146,7 @@ ServerEvents.recipes(event => {
     replace("mekanism:energized_smelter", ["ABA", "CDC", "EFE"], {
         A: "#forge:ingots/osmium",
         B: "minecraft:cauldron",
-        C: "tfmg:electromagnetic_coil",
+        C: "immersiveengineering:coil_lv",
         D: "mekanism:steel_casing",
         E: "mekanism:basic_control_circuit",
         F: "mekanism:basic_universal_cable"
