@@ -49,20 +49,10 @@ ServerEvents.recipes(event => {
     event.custom({
         "type": "create:filling",
         "ingredients": [
-            {
-                "item": "create:blaze_cake_base"
-            },
-            {
-                "amount": 250,
-                "fluid": "tconstruct:blazing_blood",
-                "nbt": {}
-            }
+            {"item": "create:blaze_cake_base"},
+            {"amount": 250, "fluid": "tconstruct:blazing_blood"}
         ],
-        "results": [
-            {
-                "item": "create:blaze_cake"
-            }
-        ]
+        "results": [{"item": "create:blaze_cake"}]
     });
 
     /* Missing Metal Plates
@@ -92,4 +82,8 @@ ServerEvents.recipes(event => {
 
 ServerEvents.tags('item', event => {
     event.add('immersiveengineering:circuits/logic', 'create:electron_tube');
+    event.add('forge:dusts/silver', 'create:crushed_raw_silver');
+    event.add('forge:dusts/tin', 'create:crushed_raw_tin');
+    event.add('forge:dusts/aluminum', 'create:crushed_raw_aluminum');
+    event.add('forge:dusts/lithium', 'tfmg:crushed_raw_lithium');
 });

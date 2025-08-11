@@ -133,6 +133,8 @@ ServerEvents.recipes(event => {
         "results": [{ "item": "tfmg:etched_circuit_board" }]
     })
 
+    event.remove({output: "tfmg:hardened_planks"});
+    event.replaceInput({}, "tfmg:hardened_planks", '#forge:treated_wood');
 });
 
 ServerEvents.tags('item', event => {
