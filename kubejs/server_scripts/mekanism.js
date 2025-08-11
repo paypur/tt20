@@ -227,4 +227,9 @@ ServerEvents.recipes(event => {
     event.remove({output: "mekanism:teleporter_frame"});
     event.remove({output: "mekanism:portable_teleporter"});
     event.remove({output: "mekanism:module_teleportation_unit"});
+
+    /* Others
+     */
+
+    event.remove({output: "mekanism:dust_netherite"});
 })

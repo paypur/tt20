@@ -8,6 +8,27 @@ ServerEvents.recipes(event => {
         event.shaped(Item.of(replace, 1), recipe, dict)
     };
 
+    const foundry = (input, output, byproducts, rate, temp, time) => {
+        event.custom({
+            "type": "tconstruct:ore_melting",
+            "byproducts": byproducts,
+            "conditions": [{
+                "type": "mantle:tag_combination_filled",
+                "ignore": "tconstruct:non_singular_ore_rates",
+                "match": input
+            }],
+            "ingredient": {
+                "type": "forge:difference",
+                "base": {"tag": input},
+                "subtracted": {"tag": "tconstruct:non_singular_ore_rates"}
+            },
+            "rate": rate,
+            "result": output,
+            "temperature": temp,
+            "time": time
+        })
+    }
+
     event.replaceInput({output: 'tconstruct:travelers_helmet'}, 'minecraft:leather', '#kubejs:leather');
     event.replaceInput({output: 'tconstruct:travelers_chestplate'}, 'minecraft:leather', '#kubejs:leather');
     event.replaceInput({output: 'tconstruct:travelers_leggings'}, 'minecraft:leather', '#kubejs:leather');
@@ -100,6 +121,25 @@ ServerEvents.recipes(event => {
     // TODO: change melting byproduct
     // ["tconstruct:scorched_chute", "tconstruct:scorched_drain"]
     //     .forEach(s => event.replaceInput({output: s}, 'tconstruct:obsidian_pane', "tconstruct:nahuatl"));
+
+    /* Foundry Melting
+     */
+
+    event.remove({id: "tconstruct:smeltery/melting/diamond/ore_singular"});
+    foundry("forge:ores/diamond",
+        {"amount": 100, "fluid": "tconstruct:molten_diamond"},
+        [{"amount": 30, "fluid": "tconstruct:molten_debris", "rate": "metal"}],
+        "gem",
+        1450,
+        197);
+
+    event.remove({id: "tconstruct:smeltery/melting/metal/molten_debris/ore"});
+    foundry("forge:ores/netherite_scrap",
+        { "amount": 90, "fluid": "tconstruct:molten_debris" },
+        [],
+        "metal",
+        1175,
+        143);
 
     /*
      * Modifiers

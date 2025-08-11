@@ -50,4 +50,7 @@ ServerEvents.recipes(event => {
             B: "#kubejs:furnace"
         }
     )
+
+    event.remove({id: "minecraft:netherite_scrap"});
+    event.remove({id: "minecraft:netherite_scrap_from_blasting"});
 })
