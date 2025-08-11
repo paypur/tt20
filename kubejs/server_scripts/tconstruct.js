@@ -29,11 +29,6 @@ ServerEvents.recipes(event => {
         })
     }
 
-    event.replaceInput({output: 'tconstruct:travelers_helmet'}, 'minecraft:leather', '#kubejs:leather');
-    event.replaceInput({output: 'tconstruct:travelers_chestplate'}, 'minecraft:leather', '#kubejs:leather');
-    event.replaceInput({output: 'tconstruct:travelers_leggings'}, 'minecraft:leather', '#kubejs:leather');
-    event.replaceInput({output: 'tconstruct:travelers_boots'}, 'minecraft:leather', '#kubejs:leather');
-
     /*
      * Smeltery
      */
@@ -95,7 +90,6 @@ ServerEvents.recipes(event => {
         M: 'create:mechanical_mixer',
         P: 'tfmg:steel_pipe'
     })
-
 
     // TODO: change melting byproduct
     event.remove({output: 'tconstruct:foundry_controller'})

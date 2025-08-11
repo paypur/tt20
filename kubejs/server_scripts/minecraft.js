@@ -53,4 +53,6 @@ ServerEvents.recipes(event => {
 
     event.remove({id: "minecraft:netherite_scrap"});
     event.remove({id: "minecraft:netherite_scrap_from_blasting"});
+
+    event.replaceInput({}, 'minecraft:leather', '#forge:leather');
 })
