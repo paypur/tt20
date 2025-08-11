@@ -20,7 +20,7 @@ ServerEvents.recipes(event => {
 
     event.remove({output: "mekanism:steel_casing"});
     event.shaped(Item.of("mekanism:steel_casing"), ["ABA", "BCB", "ABA"], {
-        A: "mekanism:ingot_steel", B: "mekanism:ingot_osmium", C: "tfmg:steel_casing"
+        A: "mekanism:ingot_steel", B: "#forge:ingots/osmium", C: "tfmg:steel_casing"
     })
 
     /* Circuits
@@ -58,7 +58,7 @@ ServerEvents.recipes(event => {
      */
     event.replaceInput({id: "mekanismgenerators:generator/heat"}, "minecraft:copper_ingot", "#forge:plates/copper");
     event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#minecraft:planks", "#forge:plates/copper");
-    event.replaceInput({id: "mekanismgenerators:generator/heat"}, "mekanism:ingot_osmium", "mekanism:steel_casing");
+    event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#forge:ingots/osmium", "mekanism:steel_casing");
     event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#kubejs:furnace", "minecraft:blast_furnace");
 
     replace(
@@ -80,7 +80,7 @@ ServerEvents.recipes(event => {
             A: "minecraft:redstone",
             B: "mekanism:bio_fuel",
             C: "mekanism:basic_control_circuit",
-            E: "mekanism:ingot_osmium",
+            E: "#forge:ingots/osmium",
             D: "mekanism:steel_casing",
             Z: "minecraft:blast_furnace"
         }
@@ -123,9 +123,9 @@ ServerEvents.recipes(event => {
     const t1_machine_template = (machine, top, bottom) => {
         event.remove({output: `${machine}`});
         event.shaped(Item.of(`${machine}`), ["CTC", "ADA", "EBE"], {
-            A: "create:electron_tube",
+            A: "mekanism:basic_control_circuit",
             C: "minecraft:redstone",
-            E: "mekanism:ingot_osmium",
+            E: "#forge:ingots/osmium",
             D: "mekanism:steel_casing",
             T: `${top}`,
             B: `${bottom}`
@@ -137,27 +137,27 @@ ServerEvents.recipes(event => {
         A: "mekanism:basic_chemical_tank",
         B: "mekanism:basic_pressurized_tube",
         C: "minecraft:blast_furnace",
-        D: "create:electron_tube",
+        D: "mekanism:basic_control_circuit",
         E: "mekanism:steel_casing",
-        F: "mekanism:ingot_osmium",
+        F: "#forge:ingots/osmium",
         G: "mekanism:basic_universal_cable"
     });
 
     replace("mekanism:energized_smelter", ["ABA", "CDC", "EFE"], {
-        A: "tfmg:electromagnetic_coil",
+        A: "#forge:ingots/osmium",
         B: "minecraft:cauldron",
-        C: "create:electron_tube",
+        C: "tfmg:electromagnetic_coil",
         D: "mekanism:steel_casing",
-        E: "mekanism:ingot_osmium",
+        E: "mekanism:basic_control_circuit",
         F: "mekanism:basic_universal_cable"
     });
 
     replace("mekanism:crusher", ["ABA", "CDC", "EFE"], {
         A: "create:metal_bracket",
         B: "create:mechanical_press",
-        C: "create:electron_tube",
+        C: "mekanism:basic_control_circuit",
         D: "mekanism:steel_casing",
-        E: "mekanism:ingot_osmium",
+        E: "#forge:ingots/osmium",
         F: "mekanism:basic_universal_cable"
     });
 
@@ -165,13 +165,22 @@ ServerEvents.recipes(event => {
         A: "create:encased_fan",
         B: "create:mechanical_saw",
         G: "create:belt_connector",
-        C: "create:electron_tube",
+        C: "mekanism:basic_control_circuit",
         D: "mekanism:steel_casing",
-        E: "mekanism:ingot_osmium",
+        E: "#forge:ingots/osmium",
         F: "mekanism:basic_universal_cable"
     });
 
-    // t1_machine_template("mekanism:enrichment_chamber", "create:millstone", "create:encased_fan"); // 2x
+    /* Tier 2 Machines
+     */
+    replace("mekanism:enrichment_chamber", ["CTC", "ADA", "EBE"], {
+        A: "mekanism:advanced_control_circuit",
+        C: "mekanism:alloy_infused",
+        E: "#forge:ingots/osmium",
+        D: "mekanism:steel_casing",
+        T: "create:millstone",
+        B: "mekanism:advanced_universal_cable"
+    });
 
     // TODO: doesnt work
     event.replaceInput({id: "mekanism:chemical_infuser"}, "mekanism:basic_control_circuit", "mekanism:advanced_control_circuit");
