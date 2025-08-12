@@ -1,5 +1,8 @@
 .idea/
 .mixin.out/
+.vscode/
+config/jei/world/
+config/spark/tmp/
 coremods/
 crash-reports/
 immersive_paintings/
@@ -24,3 +27,6 @@ patchouli_data.json
 rhino.local.properties
 usercache.json
 usernamecache.json
+
+*.log
+servers*
