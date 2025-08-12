@@ -42,7 +42,4 @@ ServerEvents.recipes(event => {
         });
 
     event.replaceInput({}, "immersiveengineering:electron_tube", "#immersiveengineering:circuits/logic");
-
-    event.shapeless("tfmg:empty_circuit_board", ["immersiveengineering:plate_duroplast", "minecraft:green_dye"]);
-
 });

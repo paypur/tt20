@@ -14,7 +14,7 @@ ServerEvents.recipes(event => {
     /* Circuits
      */
     event.remove({output: "mekanism:basic_control_circuit"});
-    // event.shapeless("mekanism:basic_control_circuit", ["create:electron_tube", "tfmg:capacitor_item", "projectred_core:plate", "tfmg:resistor"]);
+    event.shapeless("tfmg:empty_circuit_board", ["#forge:plates/plastic", "#forge:dyes/green"]);
 
     /* Alloys
      */
@@ -159,20 +159,22 @@ ServerEvents.recipes(event => {
         F: "mekanism:basic_universal_cable"
     });
 
-    /* Tier 2 Machines
-     */
     replace("mekanism:enrichment_chamber", ["CTC", "ADA", "EBE"], {
-        A: "mekanism:advanced_control_circuit",
-        C: "mekanism:alloy_infused",
+        A: "mekanism:basic_control_circuit",
+        C: "#create:crushed_raw_materials",
         E: "#forge:ingots/osmium",
         D: "mekanism:steel_casing",
         T: "create:millstone",
-        B: "mekanism:advanced_universal_cable"
+        B: "mekanism:basic_universal_cable"
     });
 
     // TODO: doesnt work
     event.replaceInput({id: "mekanism:chemical_infuser"}, "mekanism:basic_control_circuit", "mekanism:advanced_control_circuit");
     event.replaceInput({id: "mekanism:chemical_infuser"}, "mekanism:basic_chemical_tank", "mekanism:advanced_chemical_tank");
+
+    /* Factory Tiers
+     */
+    event.remove({id: /mekanism:factory\/.*/});
 
     /* Tier Installers
      */
@@ -221,3 +223,7 @@ ServerEvents.recipes(event => {
 
     event.remove({output: "mekanism:dust_netherite"});
 })
+
+ServerEvents.tags("item", event => {
+   event.add("forge:plates/plastic", "mekanism:hdpe_sheet");
+});
