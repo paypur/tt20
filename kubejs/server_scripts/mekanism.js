@@ -4,24 +4,12 @@ ServerEvents.recipes(event => {
         event.shaped(id, craft, map);
     }
 
-    // make ore processing require ore block
-    // mek only has vanilla and own ores
-    ["iron", "gold", "copper", "zinc", "nickel", "osmium", "tin", "lead", "uranium", "cobalt"]
-        .forEach((ore) => {
-            event.remove({id: `mekanism:processing/${ore}/slurry/dirty/from_raw_ore`})
-            event.remove({id: `mekanism:processing/${ore}/clump/from_raw_ore`})
-            event.remove({id: `mekanism:processing/${ore}/shard/from_raw_ore`})
-            event.remove({id: `mekanism:processing/${ore}/dust/from_raw_ore`})
-            event.remove({id: `mekanism:processing/${ore}/slurry/dirty/from_raw_block`})
-            event.remove({id: `mekanism:processing/${ore}/clump/from_raw_block`})
-            event.remove({id: `mekanism:processing/${ore}/shard/from_raw_block`})
-            event.remove({id: `mekanism:processing/${ore}/dust/from_raw_block`})
-        });
+    /* Ore Processing
+     */
 
-    event.remove({output: "mekanism:steel_casing"});
-    event.shaped(Item.of("mekanism:steel_casing"), ["ABA", "BCB", "ABA"], {
-        A: "mekanism:ingot_steel", B: "#forge:ingots/osmium", C: "tfmg:steel_casing"
-    })
+    // Make ore processing require ore blocks
+    event.remove({mod: "mekanism", id: /.*\/from_raw_.*/});
+    event.remove({mod: /moremekanismprocessing/, id: /.*\/from_raw_.*/});
 
     /* Circuits
      */
@@ -188,32 +176,28 @@ ServerEvents.recipes(event => {
 
     /* Tier Installers
      */
-    event.remove({output: "mekanism:basic_tier_installer"});
-    event.shaped("mekanism:basic_tier_installer", ["RCR", "SHS", "RCR"], {
+    replace("mekanism:basic_tier_installer", ["RCR", "SHS", "RCR"], {
         R: "minecraft:redstone",
         C: "mekanism:basic_control_circuit",
         S: "mekanism:steel_casing",
         H: "mekanism:hdpe_sheet",
     });
 
-    event.remove({output: "mekanism:advanced_tier_installer"});
-    event.shaped("mekanism:advanced_tier_installer", ["RCR", "SHS", "RCR"], {
+    replace("mekanism:advanced_tier_installer", ["RCR", "SHS", "RCR"], {
         R: "mekanism:alloy_infused",
         C: "mekanism:advanced_control_circuit",
         S: "mekanism:steel_casing",
         H: "mekanism:hdpe_sheet",
     });
 
-    event.remove({output: "mekanism:elite_tier_installer"});
-    event.shaped("mekanism:elite_tier_installer", ["RCR", "SHS", "RCR"], {
+    replace("mekanism:elite_tier_installer", ["RCR", "SHS", "RCR"], {
         R: "mekanism:alloy_reinforced",
         C: "mekanism:elite_control_circuit",
         S: "mekanism:steel_casing",
         H: "mekanism:hdpe_sheet",
     });
 
-    event.remove({output: "mekanism:ultimate_tier_installer"});
-    event.shaped("mekanism:ultimate_tier_installer", ["RCR", "SHS", "RCR"], {
+    replace("mekanism:ultimate_tier_installer", ["RCR", "SHS", "RCR"], {
         R: "mekanism:alloy_atomic",
         C: "mekanism:ultimate_control_circuit",
         S: "mekanism:steel_casing",
@@ -230,6 +214,10 @@ ServerEvents.recipes(event => {
 
     /* Others
      */
+
+    replace("mekanism:steel_casing", ["ABA", "BCB", "ABA"], {
+        A: "mekanism:ingot_steel", B: "#forge:ingots/osmium", C: "tfmg:steel_casing"
+    })
 
     event.remove({output: "mekanism:dust_netherite"});
 })
