@@ -8,8 +8,9 @@ ServerEvents.recipes(event => {
      */
 
     // Make ore processing require ore blocks
-    event.remove({mod: "mekanism", id: /.*\/from_raw_.*/});
-    event.remove({mod: /moremekanismprocessing/, id: /.*\/from_raw_.*/});
+    event.remove({mod: "mekanism", id: /.*from_raw_.*/});
+    event.remove({mod: "moremekanismprocessing", id: /.*from_raw_.*/});
+    event.remove({mod: "moremekanismprocessing", id: /.*raw_(ore|storage_blocks)/});
 
     /* Circuits
      */
