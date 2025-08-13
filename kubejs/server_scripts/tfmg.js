@@ -99,8 +99,8 @@ ServerEvents.recipes(event => {
             "tfmg:firebrick_lined_vat"
         ],
         "ingredients": [
-            { "item": "tfmg:sulfur_dust" },
-            { "item": "tfmg:sulfur_dust" },
+            { "tag": "forge:dusts/sulfur" },
+            { "tag": "forge:dusts/sulfur" },
             { "item": "tfmg:nitrate_dust" },
             { "amount": 100, "fluid": "minecraft:water" }
         ],

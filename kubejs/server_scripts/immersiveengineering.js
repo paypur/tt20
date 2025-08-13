@@ -17,6 +17,34 @@ ServerEvents.recipes(event => {
         });
     }
 
+    /* Ore Processing
+     */
+    const crushing = (material) => {
+        event.custom({
+            "type": "immersiveengineering:crusher",
+            "conditions": [{"type": "forge:not", "value": {"type": "forge:tag_empty", "tag": `forge:ingots/${material}`}}],
+            "energy": 3000,
+            "input": {"tag": `forge:ingots/${material}`},
+            "result": {"tag": `forge:dusts/${material}`},
+            "secondaries": []
+        });
+        event.custom({
+            "type": "immersiveengineering:crusher",
+            "conditions": [{"type": "forge:not", "value": {"type": "forge:tag_empty", "tag": `forge:gems/${material}`}}],
+            "energy": 3000,
+            "input": {"tag": `forge:gems/${material}`},
+            "result": {"tag": `forge:dusts/${material}`},
+            "secondaries": []
+        });
+    };
+
+    // Make ore processing require ore blocks
+    event.remove({id: /immersiveengineering:crusher\/raw_(ore|block)_.*/});
+
+    // only do ones the ie doesn't already add
+    ["fluorite", "bronze", "lapis", "quartz", "emerald", "diamond", "steel", "obsidian", "refined_obsidian", "osmium", "tin", "lithium", "cobalt", "draconium"]
+        .forEach(material => crushing(material));
+
     // use tfmg coke oven instead
     event.remove({output: "immersiveengineering:cokebrick"});
     event.remove({type: "immersiveengineering:coke_oven"});
