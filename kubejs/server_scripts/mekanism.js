@@ -44,10 +44,11 @@ ServerEvents.recipes(event => {
 
     /* Power Generation
      */
-    event.replaceInput({id: "mekanismgenerators:generator/heat"}, "minecraft:copper_ingot", "#forge:plates/copper");
-    event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#minecraft:planks", "#forge:plates/copper");
-    event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#forge:ingots/osmium", "mekanism:steel_casing");
-    event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#kubejs:furnace", "minecraft:blast_furnace");
+    event.remove({id: "mekanismgenerators:generator/heat"});
+    // event.replaceInput({id: "mekanismgenerators:generator/heat"}, "minecraft:copper_ingot", "#forge:plates/copper");
+    // event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#minecraft:planks", "#forge:plates/copper");
+    // event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#forge:ingots/osmium", "mekanism:steel_casing");
+    // event.replaceInput({id: "mekanismgenerators:generator/heat"}, "#kubejs:furnace", "minecraft:blast_furnace");
 
     replace(
         "mekanismgenerators:solar_panel",
