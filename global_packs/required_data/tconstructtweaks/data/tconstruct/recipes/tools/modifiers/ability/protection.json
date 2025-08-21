@@ -4,23 +4,23 @@
   "inputs": [
     {
       "item": "tconstruct:gold_reinforcement",
-      "amount_needed": 8
+      "amount_needed": 6
     },
     {
       "item": "tconstruct:seared_reinforcement",
-      "amount_needed": 8
+      "amount_needed": 6
     },
     {
-      "item": "tconstruct:bronze_reinforcement",
-      "amount_needed": 8
+      "item": "tconstruct:obsidian_reinforcement",
+      "amount_needed": 6
     },
     {
-      "item": "tconstruct:emerald_reinforcement",
-      "amount_needed": 8
+      "item": "tconstruct:iron_reinforcement",
+      "amount_needed": 6
     },
     {
       "item": "tconstruct:cobalt_reinforcement",
-      "amount_needed": 8
+      "amount_needed": 6
     }
   ],
   "level": 1,

@@ -17,7 +17,7 @@
     },
     {
       "type": "tconstruct:stat_boost",
-      "flat": 0.5,
+      "flat": 1,
       "operation": "add",
       "stat": "tconstruct:armor"
     },
