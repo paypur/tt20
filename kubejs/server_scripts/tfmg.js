@@ -88,7 +88,7 @@ ServerEvents.recipes(event => {
         "type": "tfmg:coking",
         "ingredients": [{"tag": "kubejs:coal"}],
         "processingTime": 1200,
-        "results": [{"item": "immersiveengineering:coal_coke"}, {"amount": 50, "fluid": "immersiveengineering:creosote"}, {"amount": 25, "fluid": "tfmg:carbon_dioxide"}]
+        "results": [{"item": "immersiveengineering:coal_coke"}, {"amount": 2, "fluid": "immersiveengineering:creosote"}, {"amount": 1, "fluid": "tfmg:carbon_dioxide"}]
     });
 
     event.remove({id: "tfmg:vat_machine_recipe/sulfuric_acid"});
