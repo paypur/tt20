@@ -55,4 +55,11 @@ ServerEvents.recipes(event => {
     event.remove({id: "minecraft:netherite_scrap_from_blasting"});
 
     event.replaceInput({}, 'minecraft:leather', '#forge:leather');
+
+    /* Others
+     */
+    event.shapeless("kubejs:invar_block", [Item.of("#forge:ingots/invar", 9)]);
+    event.shapeless(Item.of("kubejs:invar_nugget", 9), ["#forge:ingots/invar"]);
+    event.recipes.create.crushing("kubejs:invar_dust", "#forge:ingots/invar");
+    event.recipes.create.pressing("kubejs:invar_plate", "#forge:ingots/invar");
 })

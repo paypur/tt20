@@ -1,4 +1,7 @@
 ServerEvents.tags('item', event => {
+    /* KubeJS stuff
+     */
+
     event.add('kubejs:gearbox', 'create:gearbox');
     event.add('kubejs:gearbox', 'create:vertical_gearbox');
 
@@ -7,8 +10,13 @@ ServerEvents.tags('item', event => {
     event.add('kubejs:furnace', "quark:blackstone_furnace");
 
     // add plates to tags
-    ["aluminum", "constantan", "lead", "nickel", "silver", "steel"]
-        .forEach((s) => event.add(`forge:plates/${s}`, `kubejs:metal_plate_${s}`));
+    ["invar"]
+        .forEach((s) => {
+        event.add(`forge:ingots/${s}`, `kubejs:${s}_ingot`);
+        event.add(`forge:plates/${s}`, `kubejs:${s}_plate`);
+        event.add(`forge:nuggets/${s}`, `kubejs:${s}_nugget`);
+        event.add(`forge:dusts/${s}`, `kubejs:${s}_dust`);
+    });
 
     // adds crushed to dust tag
     ["iron", "gold", "copper", "zinc", "osmium", "tin", "lead", "uranium", "nickel"]
@@ -37,6 +45,8 @@ ServerEvents.tags('item', event => {
 
 // https://www.reddit.com/r/CreateMod/comments/1ceabxl/comment/mjyy56s
 ServerEvents.tags('block', event => {
+    event.add("forge:storage_blocks/invar", "kubejs:invar_block")
+
     event.removeAll("create:fan_processing_catalysts/blasting");
 
     event.removeAll("create:windmill_sails");
