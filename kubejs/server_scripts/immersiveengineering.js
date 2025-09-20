@@ -73,5 +73,5 @@ ServerEvents.recipes(event => {
 
     /* Machines
      */
-    event.replaceInput({output: "immersiveengineering:graden_cloche"}, "immersiveengineering:component_iron", "immersiveengineering:light_engineering");
+    event.replaceInput({output: "immersiveengineering:cloche"}, "immersiveengineering:component_iron", "immersiveengineering:light_engineering");
 });
