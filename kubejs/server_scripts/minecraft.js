@@ -59,7 +59,9 @@ ServerEvents.recipes(event => {
     /* Others
      */
     event.shapeless("kubejs:invar_block", [Item.of("#forge:ingots/invar", 9)]);
+    event.shapeless("#forge:ingots/invar", [Item.of("kubejs:invar_nugget", 9)]);
     event.shapeless(Item.of("kubejs:invar_nugget", 9), ["#forge:ingots/invar"]);
+    event.shapeless(Item.of("#forge:ingots/invar", 9), "kubejs:invar_block");
     event.recipes.create.crushing("kubejs:invar_dust", "#forge:ingots/invar");
     event.recipes.create.pressing("kubejs:invar_plate", "#forge:ingots/invar");
 })
