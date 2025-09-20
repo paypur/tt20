@@ -57,8 +57,6 @@ ServerEvents.recipes(event => {
 
     /* Missing Metal Plates
      */
-    ["aluminum", "constantan", "lead", "nickel", "silver", "steel"]
-        .forEach(s => event.recipes.create.pressing(`kubejs:metal_plate_${s}`, `#forge:ingots/${s}`));
     event.remove({id: "tfmg:sequenced_assembly/heavy_plate"});
 
     /*

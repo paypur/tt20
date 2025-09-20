@@ -7,7 +7,7 @@ ServerEvents.recipes(event => {
         'SUGUS',
         'SSCSS'
     ], {
-        S: 'ae2:smooth_sky_stone_block',
+        S: 'ae2:sky_stone_block',
         C: '#ae2:covered_dense_cable',
         R: 'projectred_illumination:red_inverted_fixture_light',
         G: 'projectred_illumination:green_inverted_fixture_light',
@@ -17,4 +17,6 @@ ServerEvents.recipes(event => {
         E: 'ae2:engineering_processor',
         O: 'ae2:logic_processor'
     })
+
+    event.replaceInput({mod: "ae2"}, "minecraft:iron_ingot", "#forge:ingots/invar");
 })

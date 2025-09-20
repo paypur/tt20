@@ -3,11 +3,11 @@
     "minecraft",
     "mekanism",
     "immersiveengineering",
-    "moremekanismprocessing",
     "create",
     "tconstruct",
     "tfmg",
-    "draconicevolution"
+    "draconicevolution",
+    "moremekanismprocessing"
   ],
   "stoneStrata": [
     "stone",

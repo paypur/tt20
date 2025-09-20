@@ -12,6 +12,14 @@ ServerEvents.recipes(event => {
     event.remove({mod: "moremekanismprocessing", id: /.*from_raw_.*/});
     event.remove({mod: "moremekanismprocessing", id: /.*raw_(ore|storage_blocks)/});
 
+    /* Crushing
+     */
+    const crushing = (input_t, output_i) => event.custom({
+        "type": "mekanism:crushing",
+        "input": {"ingredient": {"tag": input_t}},
+        "output": {"item": output_i}
+    });
+
     /* Circuits
      */
     event.remove({output: "mekanism:basic_control_circuit"});

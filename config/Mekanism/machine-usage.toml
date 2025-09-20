@@ -2,7 +2,7 @@
 #Machine Energy Usage Config. This config is synced from server to client.
 [usage]
 	#Energy per operation tick (Joules).
-	enrichmentChamber = "125"
+	enrichmentChamber = "250"
 	#Energy per operation tick (Joules).
 	osmiumCompressor = "250"
 	#Energy per operation tick (Joules).

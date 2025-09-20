@@ -70,4 +70,8 @@ ServerEvents.recipes(event => {
         });
 
     event.replaceInput({}, "immersiveengineering:electron_tube", "#immersiveengineering:circuits/logic");
+
+    /* Machines
+     */
+    event.replaceInput({output: "immersiveengineering:graden_cloche"}, "immersiveengineering:component_iron", "immersiveengineering:light_engineering");
 });
