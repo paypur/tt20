@@ -9,13 +9,13 @@ ServerEvents.tags('item', event => {
     event.add('kubejs:furnace', "quark:deepslate_furnace");
     event.add('kubejs:furnace', "quark:blackstone_furnace");
 
-    // add plates to tags
     ["invar"]
         .forEach((s) => {
         event.add(`forge:ingots/${s}`, `kubejs:${s}_ingot`);
         event.add(`forge:plates/${s}`, `kubejs:${s}_plate`);
         event.add(`forge:nuggets/${s}`, `kubejs:${s}_nugget`);
         event.add(`forge:dusts/${s}`, `kubejs:${s}_dust`);
+        event.add(`forge:storage_blocks/${s}`, `kubejs:${s}_block`);
     });
 
     // adds crushed to dust tag
