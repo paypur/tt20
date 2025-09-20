@@ -86,7 +86,7 @@ ServerEvents.recipes(event => {
     event.remove({id: "tfmg:coking/coal"});
     event.custom({
         "type": "tfmg:coking",
-        "ingredients": [{"tag": "kubejs:coal"}],
+        "ingredients": [{"item": "minecraft:coal"}],
         "processingTime": 1200,
         "results": [{"item": "immersiveengineering:coal_coke"}, {"amount": 2, "fluid": "immersiveengineering:creosote"}, {"amount": 1, "fluid": "tfmg:carbon_dioxide"}]
     });
