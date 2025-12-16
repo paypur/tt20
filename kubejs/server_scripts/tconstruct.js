@@ -84,7 +84,7 @@ ServerEvents.recipes(event => {
         C: 'tfmg:steel_casing',
         D: 'tconstruct:scorched_drain',
         G: 'ae2:quartz_glass',
-        S: 'tconstruct:scorched_bricks',
+        S: 'tconstruct:scorched_brick',
         O: 'tfmg:steel_cogwheel',
         N: 'create:basin',
         M: 'create:mechanical_mixer',
@@ -94,18 +94,17 @@ ServerEvents.recipes(event => {
     // TODO: change melting byproduct
     event.remove({output: 'tconstruct:foundry_controller'})
     event.recipes.createMechanicalCrafting('tconstruct:foundry_controller', [
-        'NNNNN',
-        'NGGGN',
-        'NOCON',
-        'NABAN',
+        'SSSSS',
+        'SGGGS',
+        'SOCOS',
+        'SABAS',
         'SSSSS'
     ], {
         A: 'mekanism:advanced_control_circuit',
         B: 'minecraft:blast_furnace',
         C: 'tfmg:steel_casing',
         G: 'ae2:quartz_glass',
-        N: 'tconstruct:nahuatl',
-        S: 'tconstruct:scorched_bricks',
+        S: 'tconstruct:scorched_brick',
         O: 'create:content_observer'
     })
 
