@@ -63,4 +63,19 @@
 	#How fast the gauntlet battery can charge/discharge
 	#Range: > 0
 	gauntletEnergyTransfer = 1000
+	#Damage dealt by plasma rifle projectile
+	#Range: 0.0 ~ 3.4028234663852886E38
+	plasmaRifleDamage = 8.0
+	#Damage dealt by railgun rod
+	#Range: 0.0 ~ 3.4028234663852886E38
+	railgunDamage = 16.0
+	#Stats scaling when railgun is in second mode
+	#Range: 0.0 ~ 3.4028234663852886E38
+	railgunSecondModeScale = 2.0
+	#Damage dealt by tesla minigun
+	#Range: 0.0 ~ 3.4028234663852886E38
+	teslaMinigunDamage = 2.5
+	#Damage dealt by gauntlet
+	#Range: 0.0 ~ 3.4028234663852886E38
+	gauntletDamage = 5.0
 
