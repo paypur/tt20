@@ -1,0 +1,3 @@
+[submodule "mods"]
+	path = mods
+	url = git@github.com:paypur/tt20_mods.git

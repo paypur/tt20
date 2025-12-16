@@ -10,7 +10,7 @@ immersive_paintings_cache/
 local/
 logs/
 modernfix/
-mods/
+# mods/
 resourcepacks/
 saves/
 schematics/
