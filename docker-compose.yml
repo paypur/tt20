@@ -14,14 +14,15 @@ services:
       # The minecraft protocol version of the forge server
       - lazymc.public.protocol=763
       # Set to true on a forge server
+      - lazymc.join.hold.timeout=29
       - lazymc.server.wake_whitelist
       - lazymc.server.forge=true
       - lazymc.time.sleep.after=60
       - lazymc.time.minimum_online_time=300
     tty: true
     stdin_open: true
-    # ports:
-    #  - "25565:25565"
+    ports:
+      - "25565:25565"
     environment:
       VERSION: "1.20.1"
       TYPE: FORGE
@@ -50,6 +51,7 @@ services:
     volumes:
       # attach the relative directory 'data' to the container's /data path
       - ./data:/data:Z
+      - ./b1mo:/data/b1mo
       - ./mods:/mods
       - ./config:/config
       - ./kubejs:/data/kubejs
@@ -57,15 +59,11 @@ services:
 
   lazymc:
     image: ghcr.io/joesturge/lazymc-docker-proxy:latest
-# the IPs should start at .2 as .1 is reserved for the gateway
-    networks:
-      minecraft-network:
-        ipv4_address: 172.20.0.2
     restart: unless-stopped
     volumes:
-       you should mount the minecraft server dir under /server, using read only.
+      # you should mount the minecraft server dir under /server, using read only.
       - data:/server:ro
-       you need to supply the docker socket, so that the container can run docker command
+      # you need to supply the docker socket, so that the container can run docker command
       - /run/user/1000/docker.sock:/var/run/docker.sock:rw
     ports:
       # lazymc-docker-proxy acts as a proxy, so there is
