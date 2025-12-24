@@ -92,39 +92,7 @@ ServerEvents.recipes(event => {
     });
 
     event.remove({id: "tfmg:vat_machine_recipe/sulfuric_acid"});
-    event.custom({
-        "type": "tfmg:vat_machine_recipe",
-        "allowedVatTypes": [
-            "tfmg:steel_vat",
-            "tfmg:firebrick_lined_vat"
-        ],
-        "ingredients": [
-            { "tag": "forge:dusts/sulfur" },
-            { "tag": "forge:dusts/sulfur" },
-            { "item": "tfmg:nitrate_dust" },
-            { "amount": 100, "fluid": "minecraft:water" }
-        ],
-        "machines": [ "tfmg:mixing" ],
-        "minSize": 1,
-        "results": [{ "amount": 100, "fluid": "mekanism:sulfuric_acid" }]
-    })
-
     event.remove({id: "tfmg:vat_machine_recipe/etched_circuit_board"});
-    event.custom({
-        "type": "tfmg:vat_machine_recipe",
-        "allowedVatTypes": [
-            "tfmg:steel_vat",
-            "tfmg:cast_iron_vat",
-            "tfmg:firebrick_lined_vat"
-        ],
-        "ingredients": [
-            { "item": "tfmg:coated_circuit_board" },
-            { "amount": 100, "fluid": "mekanism:sulfuric_acid" }
-        ],
-        "minSize": 1,
-        "processingTime": 100,
-        "results": [{ "item": "tfmg:etched_circuit_board" }]
-    })
 
     event.remove({output: "tfmg:hardened_planks"});
     event.replaceInput({}, "tfmg:hardened_planks", '#forge:treated_wood');
