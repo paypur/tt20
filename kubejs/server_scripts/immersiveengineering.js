@@ -74,4 +74,8 @@ ServerEvents.recipes(event => {
     /* Machines
      */
     event.replaceInput({output: "immersiveengineering:cloche"}, "immersiveengineering:component_iron", "immersiveengineering:light_engineering");
+
+    /* Power Generation
+     */
+    // TODO: nerf water wheel recipe
 });

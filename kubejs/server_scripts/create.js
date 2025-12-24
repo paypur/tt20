@@ -35,7 +35,7 @@ ServerEvents.recipes(event => {
     .loops(5);
 
     event.remove({id: "create:crafting/kinetics/large_cogwheel_from_little"});
-    event.shaped('create:large_cogwheel', [" P ", "PSP", " P "], {P: "#minecraft:planks", S: "create:cogwheel"},);
+    event.shaped('create:large_cogwheel', [" P ", "PSP", " P "], {P: "#minecraft:planks", S: "create:cogwheel"});
 
     event.replaceInput({output: "create:water_wheel"}, "create:shaft", "#kubejs:gearbox");
     event.replaceInput({output: "create:crushing_wheel"}, "#forge:stone", "#kubejs:gearbox");
@@ -54,6 +54,15 @@ ServerEvents.recipes(event => {
         ],
         "results": [{"item": "create:blaze_cake"}]
     });
+
+    /* Circuit stuff
+     */
+    event.recipes.create.mixing(
+        [Fluid.of('mekanism:sulfuric_acid', 100)],
+        [Fluid.of('minecraft:water', 100), "2x #forge:dusts/sulfur", '#forge:dusts/saltpeter']
+    ).heated()
+
+    event.recipes.create.filling("tfmg:etched_circuit_board", [Fluid.of('mekanism:sulfuric_acid', 100), "tfmg:coated_circuit_board"])
 
     /* Missing Metal Plates
      */

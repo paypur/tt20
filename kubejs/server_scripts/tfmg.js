@@ -91,40 +91,71 @@ ServerEvents.recipes(event => {
         "results": [{"item": "immersiveengineering:coal_coke"}, {"amount": 2, "fluid": "immersiveengineering:creosote"}, {"amount": 1, "fluid": "tfmg:carbon_dioxide"}]
     });
 
-    event.remove({id: "tfmg:vat_machine_recipe/sulfuric_acid"});
+    event.remove({id: "tfmg:sequenced_assembly/steel_mechanism"});
     event.custom({
-        "type": "tfmg:vat_machine_recipe",
-        "allowedVatTypes": [
-            "tfmg:steel_vat",
-            "tfmg:firebrick_lined_vat"
-        ],
-        "ingredients": [
-            { "tag": "forge:dusts/sulfur" },
-            { "tag": "forge:dusts/sulfur" },
-            { "item": "tfmg:nitrate_dust" },
-            { "amount": 100, "fluid": "minecraft:water" }
-        ],
-        "machines": [ "tfmg:mixing" ],
-        "minSize": 1,
-        "results": [{ "amount": 100, "fluid": "mekanism:sulfuric_acid" }]
+        "type": "create:sequenced_assembly", "ingredient": {
+            "tag": "forge:plates/steel"
+        }, "loops": 2, "results": [{
+            "chance": 120.0, "item": "tfmg:steel_mechanism"
+        }, {
+            "chance": 4.0, "item": "minecraft:compass"
+        }, {
+            "chance": 4.0, "item": "tfmg:steel_ingot"
+        }], "sequence": [{
+            "type": "create:deploying", "ingredients": [{
+                "item": "tfmg:unfinished_steel_mechanism"
+            }, {
+                "item": "tfmg:steel_cogwheel"
+            }], "results": [{
+                "item": "tfmg:unfinished_steel_mechanism"
+            }]
+        }, {
+            "type": "create:deploying", "ingredients": [{
+                "item": "tfmg:unfinished_steel_mechanism"
+            }, {
+                "tag": "forge:plates/nickel"
+            }], "results": [{
+                "item": "tfmg:unfinished_steel_mechanism"
+            }]
+        }, {
+            "type": "create:deploying", "ingredients": [{
+                "item": "tfmg:unfinished_steel_mechanism"
+            }, {
+                "item": "tfmg:large_steel_cogwheel"
+            }], "results": [{
+                "item": "tfmg:unfinished_steel_mechanism"
+            }]
+        }, {
+            "type": "create:deploying", "ingredients": [{
+                "item": "tfmg:unfinished_steel_mechanism"
+            }, {
+                "tag": "forge:plates/lead"
+            }], "results": [{
+                "item": "tfmg:unfinished_steel_mechanism"
+            }]
+        }, {
+            "type": "create:deploying", "ingredients": [{
+                "item": "tfmg:unfinished_steel_mechanism"
+            }, {
+                "item": "tfmg:screw"
+            }], "results": [{
+                "item": "tfmg:unfinished_steel_mechanism"
+            }]
+        }, {
+            "type": "create:deploying", "ingredients": [{
+                "item": "tfmg:unfinished_steel_mechanism"
+            }, {
+                "item": "tfmg:screwdriver"
+            }], "results": [{
+                "item": "tfmg:unfinished_steel_mechanism"
+            }]
+        }], "transitionalItem": {
+            "item": "tfmg:unfinished_steel_mechanism"
+        }
     })
 
+    event.remove({id: "tfmg:vat_machine_recipe/sulfuric_acid"});
     event.remove({id: "tfmg:vat_machine_recipe/etched_circuit_board"});
-    event.custom({
-        "type": "tfmg:vat_machine_recipe",
-        "allowedVatTypes": [
-            "tfmg:steel_vat",
-            "tfmg:cast_iron_vat",
-            "tfmg:firebrick_lined_vat"
-        ],
-        "ingredients": [
-            { "item": "tfmg:coated_circuit_board" },
-            { "amount": 100, "fluid": "mekanism:sulfuric_acid" }
-        ],
-        "minSize": 1,
-        "processingTime": 100,
-        "results": [{ "item": "tfmg:etched_circuit_board" }]
-    })
 
     event.remove({output: "tfmg:hardened_planks"});
     event.replaceInput({}, "tfmg:hardened_planks", '#forge:treated_wood');
