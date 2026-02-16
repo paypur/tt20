@@ -4,6 +4,18 @@ ServerEvents.recipes(event => {
         event.shaped(id, craft, map);
     }
 
+    const t1_machine_template = (machine, top, bottom) => {
+        event.remove({output: `${machine}`});
+        event.shaped(Item.of(`${machine}`), ["CTC", "ADA", "EBE"], {
+            A: "mekanism:basic_control_circuit",
+            C: "minecraft:redstone",
+            E: "#forge:ingots/osmium",
+            D: "mekanism:steel_casing",
+            T: `${top}`,
+            B: `${bottom}`
+        });
+    };
+
     /* Ore Processing
      */
 
@@ -73,14 +85,14 @@ ServerEvents.recipes(event => {
 
     replace(
         "mekanismgenerators:bio_generator",
-        ["ACA", "BDB", "EZE"],
+        ["ACA", "BDB", "EFE"],
         {
-            A: "minecraft:redstone",
-            B: "mekanism:bio_fuel",
-            C: "mekanism:basic_control_circuit",
-            E: "#forge:ingots/osmium",
+            A: "mekanism:bio_fuel",
+            B: "mekanism:basic_control_circuit",
+            C: "minecraft:furnace",
             D: "mekanism:steel_casing",
-            Z: "minecraft:blast_furnace"
+            E: "#forge:ingots/osmium",
+            F: "mekanism:basic_universal_cable"
         }
     )
 
@@ -118,17 +130,7 @@ ServerEvents.recipes(event => {
 
     /* Standard Machines
      */
-    const t1_machine_template = (machine, top, bottom) => {
-        event.remove({output: `${machine}`});
-        event.shaped(Item.of(`${machine}`), ["CTC", "ADA", "EBE"], {
-            A: "mekanism:basic_control_circuit",
-            C: "minecraft:redstone",
-            E: "#forge:ingots/osmium",
-            D: "mekanism:steel_casing",
-            T: `${top}`,
-            B: `${bottom}`
-        });
-    };
+
 
     // left <-> right
     replace("mekanism:metallurgic_infuser", ["ABC", "DED", "FGF"], {
@@ -142,11 +144,11 @@ ServerEvents.recipes(event => {
     });
 
     replace("mekanism:energized_smelter", ["ABA", "CDC", "EFE"], {
-        A: "#forge:ingots/osmium",
+        A: "mekanism:basic_control_circuit",
         B: "minecraft:cauldron",
         C: "immersiveengineering:coil_lv",
         D: "mekanism:steel_casing",
-        E: "mekanism:basic_control_circuit",
+        E: "#forge:ingots/osmium",
         F: "mekanism:basic_universal_cable"
     });
 
