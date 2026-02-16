@@ -1,7 +1,18 @@
+networks:
+  minecraft-network:
+    driver: bridge
+#    internal: true
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
 services:
   mc:
     image: itzg/minecraft-server:java17
-    pull_policy: daily
+    networks:
+      minecraft-network:
+        ipv4_address: 172.20.0.3
+#    pull_policy: daily
     labels:
       # Set lazymc.enabled to true to enable lazymc on this container
       - lazymc.enabled=true
@@ -21,8 +32,8 @@ services:
       - lazymc.time.minimum_online_time=300
     tty: true
     stdin_open: true
-    ports:
-      - "25565:25565"
+#    ports:
+#      - "25565:25565"
     environment:
       VERSION: "1.20.1"
       TYPE: FORGE
@@ -55,10 +66,14 @@ services:
       - ./mods:/mods
       - ./config:/config
       - ./kubejs:/data/kubejs
+      - ./global_packs:/data/global_packs
     restart: unless-stopped
 
   lazymc:
     image: ghcr.io/joesturge/lazymc-docker-proxy:latest
+    networks:
+      minecraft-network:
+        ipv4_address: 172.20.0.2
     restart: unless-stopped
     volumes:
       # you should mount the minecraft server dir under /server, using read only.
