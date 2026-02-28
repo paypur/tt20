@@ -12,7 +12,7 @@ ServerEvents.recipes(event => {
         .forEach((tag) => {
             event.remove({
                 input: tag,
-                not: [{mod: "draconicevolution"}, {mod: "mekanism"}, {mod: "create"}]
+                not: [{mod: "draconicevolution"}, {mod: "mekanism"}, {mod: "create"}, {mod: "tconstruct"}]
             })
             event.remove({
                 output: tag,
