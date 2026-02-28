@@ -17,6 +17,34 @@ ServerEvents.recipes(event => {
         });
     }
 
+    /* Nerfs plates
+     */
+    const replacePlates = (plate, ingot) => {
+        event.remove({ output: plate, type: "minecraft:crafting_shapeless" })
+        event.shaped(
+            plate,
+            ["H", "I", "I"],
+            { H: Item.of('immersiveengineering:hammer').ignoreNBT(), I: ingot }
+        )
+        .damageIngredient('immersiveengineering:hammer')
+        .keepIngredient('immersiveengineering:hammer')
+    }
+
+    replacePlates("immersiveengineering:plate_copper", "#forge:ingots/copper")
+    replacePlates("immersiveengineering:plate_aluminum", "#forge:ingots/aluminum")
+    replacePlates("immersiveengineering:plate_lead", "#forge:ingots/lead")
+    replacePlates("immersiveengineering:plate_silver", "#forge:ingots/silver")
+    replacePlates("immersiveengineering:plate_nickel", "#forge:ingots/nickel")
+    replacePlates("immersiveengineering:plate_uranium", "#forge:ingots/uranium")
+    replacePlates("immersiveengineering:plate_constantan", "#forge:ingots/constantan")
+    replacePlates("immersiveengineering:plate_electrum", "#forge:ingots/electrum")
+    replacePlates("immersiveengineering:plate_steel", "#forge:ingots/steel")
+    replacePlates("immersiveengineering:plate_iron", "#forge:ingots/iron")
+    replacePlates("immersiveengineering:plate_gold", "#forge:ingots/gold")
+    replacePlates("create:brass_sheet", "#forge:ingots/brass")
+    replacePlates("createaddition:zinc_sheet", "#forge:ingots/zinc")
+    replacePlates("kubejs:invar_plate", "#forge:ingots/invar")
+
     /* Ore Processing
      */
     const crushing = (material) => {

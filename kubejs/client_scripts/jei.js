@@ -31,6 +31,15 @@ JEIEvents.hideItems(event => {
             event.hide(`moremekanismprocessing:${o}_ingot`);
             event.hide(`moremekanismprocessing:${o}_nugget`);
         });
+
+    event.hide("mekanismgenerators:generator/heat");
+
+    event.hide("theoneprobe:creative_probe");
+    event.hide("theoneprobe:probe");
+    event.hide("theoneprobe:diamond_helmet_probe");
+    event.hide("theoneprobe:gold_helmet_probe");
+    event.hide("theoneprobe:iron_helmet_probe");
+    event.hide("theoneprobe:probe_note");
 })
 
 JEIEvents.removeCategories(event => {
