@@ -28,7 +28,7 @@ services:
       - lazymc.join.hold.timeout=29
       - lazymc.server.wake_whitelist
       - lazymc.server.forge=true
-      - lazymc.time.sleep.after=60
+      - lazymc.time.sleep.after=300
       - lazymc.time.minimum_online_time=300
     tty: true
     stdin_open: true
