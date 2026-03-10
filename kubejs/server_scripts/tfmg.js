@@ -1,4 +1,9 @@
 ServerEvents.recipes(event => {
+    const replace = (replace, recipe, dict) => {
+        event.remove({output: replace})
+        event.shaped(Item.of(replace, 1), recipe, dict)
+    };
+
     event.remove({id: "tfmg:industrial_blasting/steel"})
     event.remove({id: "tfmg:industrial_blasting/steel_from_dust"})
     event.remove({id: "tfmg:industrial_blasting/steel_from_raw_iron"})
@@ -63,24 +68,27 @@ ServerEvents.recipes(event => {
     event.remove({id: "tfmg:sequenced_assembly/unfinished_circuit_board"});
     event.custom({
         "type": "create:sequenced_assembly",
-        "ingredient": { "item": "tfmg:etched_circuit_board" },
+        "ingredient": {"item": "tfmg:etched_circuit_board"},
         "loops": 1,
-        "results": [{ "item": "mekanism:basic_control_circuit" }],
+        "results": [{"item": "mekanism:basic_control_circuit"}],
         "sequence": [{
             "type": "create:deploying",
-            "ingredients": [{ "item": "tfmg:unfinished_circuit_board" }, { "tag": "immersiveengineering:circuits/logic" }],
-            "results": [{ "item": "tfmg:unfinished_circuit_board" }]
+            "ingredients": [{"item": "tfmg:unfinished_circuit_board"}, {"tag": "immersiveengineering:circuits/logic"}],
+            "results": [{"item": "tfmg:unfinished_circuit_board"}]
         }, {
-            "type": "create:deploying", "ingredients": [{ "item": "tfmg:unfinished_circuit_board" }, { "item": "tfmg:resistor" }],
-            "results": [{  "item": "tfmg:unfinished_circuit_board" }]
+            "type": "create:deploying",
+            "ingredients": [{"item": "tfmg:unfinished_circuit_board"}, {"item": "tfmg:resistor"}],
+            "results": [{"item": "tfmg:unfinished_circuit_board"}]
         }, {
-            "type": "create:deploying", "ingredients": [{ "item": "tfmg:unfinished_circuit_board" }, { "item": "tfmg:capacitor_item" }],
-            "results": [{ "item": "tfmg:unfinished_circuit_board" }]
+            "type": "create:deploying",
+            "ingredients": [{"item": "tfmg:unfinished_circuit_board"}, {"item": "tfmg:capacitor_item"}],
+            "results": [{"item": "tfmg:unfinished_circuit_board"}]
         }, {
-            "type": "create:deploying", "ingredients": [{ "item": "tfmg:unfinished_circuit_board" }, { "tag": "forge:nuggets/tin" }],
-            "results": [{ "item": "tfmg:unfinished_circuit_board" }]
+            "type": "create:deploying",
+            "ingredients": [{"item": "tfmg:unfinished_circuit_board"}, {"tag": "forge:nuggets/tin"}],
+            "results": [{"item": "tfmg:unfinished_circuit_board"}]
         }],
-        "transitionalItem": {  "item": "tfmg:unfinished_circuit_board" }
+        "transitionalItem": {"item": "tfmg:unfinished_circuit_board"}
     })
 
     event.remove({id: "tfmg:coking/coal"});
@@ -88,7 +96,10 @@ ServerEvents.recipes(event => {
         "type": "tfmg:coking",
         "ingredients": [{"item": "minecraft:coal"}],
         "processingTime": 1200,
-        "results": [{"item": "immersiveengineering:coal_coke"}, {"amount": 2, "fluid": "immersiveengineering:creosote"}, {"amount": 1, "fluid": "tfmg:carbon_dioxide"}]
+        "results": [{"item": "immersiveengineering:coal_coke"}, {
+            "amount": 2,
+            "fluid": "immersiveengineering:creosote"
+        }, {"amount": 1, "fluid": "tfmg:carbon_dioxide"}]
     });
 
     event.remove({id: "tfmg:sequenced_assembly/steel_mechanism"});
@@ -159,8 +170,25 @@ ServerEvents.recipes(event => {
 
     event.remove({output: "tfmg:hardened_planks"});
     event.replaceInput({}, "tfmg:hardened_planks", '#forge:treated_wood');
+
+    /**
+     * Electronic components
+     */
+    event.remove({output: "tfmg:unfinished_resistor"});
+    replace("tfmg:resistor", [" C ", "PSP", " C "], {
+        C: "#forge:wires/copper",
+        P: "immersiveengineering:wirecoil_copper",
+        S: "#forge:slimeballs"
+    });
+
+    event.remove({id: "tfmg:sequenced_assembly/capacitor"});
+    replace("tfmg:capacitor_item", ["ASA", "C C"], {
+        A: "#forge:plates/aluminum",
+        C: "#forge:wires/copper",
+        S: "#forge:slimeballs"
+    });
 });
 
 ServerEvents.tags('item', event => {
-  event.add("forge:coal_coke", "tfmg:coal_coke")
+    event.add("forge:coal_coke", "tfmg:coal_coke")
 })
