@@ -64,4 +64,6 @@ ServerEvents.recipes(event => {
     event.shapeless(Item.of("#forge:ingots/invar", 9), "kubejs:invar_block");
     event.recipes.create.crushing("kubejs:invar_dust", "#forge:ingots/invar");
     event.recipes.create.pressing("kubejs:invar_plate", "#forge:ingots/invar");
+
+    event.remove({output: "tiab:time_in_a_bottle"})
 })

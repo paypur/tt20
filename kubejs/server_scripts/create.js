@@ -17,9 +17,9 @@ ServerEvents.recipes(event => {
     });
 
     event.remove({output: "create:sail_frame"});
-    event.shaped("4x create:sail_frame", ["ASA", "S S", "ASA"], {A: "create:andesite_alloy", S: "#forge:stick"});
+    event.shaped("4x create:sail_frame", ["ASA", "S S", "ASA"], {A: "create:andesite_alloy", S: "#forge:rods/wooden"});
     event.remove({output: "create:white_sail"});
-    event.shapeless("create:white_sail", ["create:sail_frame", "projectred_core:woven_cloth"]);
+    event.shapeless("create:white_sail", ["create:sail_frame", "immersiveengineering:hemp_fabric"]);
 
     // no more rng
     event.remove({output: 'create:precision_mechanism'});
