@@ -1,6 +1,8 @@
 .idea/
 .mixin.out/
 .vscode/
+b1mo/
+data/
 config/jei/world/
 config/spark/tmp/
 coremods/
@@ -19,6 +21,7 @@ shaderpacks/
 xaero/
 XaeroWorldMap/
 XaeroWaypoints_BACKUP240807/
+
 
 .qmenu_opened.marker
 icon.png
