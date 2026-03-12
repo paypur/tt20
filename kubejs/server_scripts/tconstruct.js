@@ -115,6 +115,8 @@ ServerEvents.recipes(event => {
     // ["tconstruct:scorched_chute", "tconstruct:scorched_drain"]
     //     .forEach(s => event.replaceInput({output: s}, 'tconstruct:obsidian_pane', "tconstruct:nahuatl"));
 
+    event.remove({output: "tconstruct:nether_grout"});
+
     /* Foundry Melting
      */
 
