@@ -34,6 +34,8 @@ ServerEvents.recipes(event => {
     ).transitionalItem(inter)
     .loops(5);
 
+    /* Cogs
+     */
     event.remove({id: "create:crafting/kinetics/large_cogwheel_from_little"});
     event.shaped('create:large_cogwheel', [" P ", "PSP", " P "], {P: "#minecraft:planks", S: "create:cogwheel"});
 
@@ -54,6 +56,9 @@ ServerEvents.recipes(event => {
         ],
         "results": [{"item": "create:blaze_cake"}]
     });
+
+    event.remove({id: "tfmg:nitrate_dust"});
+    event.recipes.create.crushing([Item.of("immersiveengineering:dust_saltpeter").withChance(0.05)], "minecraft:dirt");
 
     /* Circuit stuff
      */
