@@ -1,13 +1,17 @@
 networks:
   minecraft-network:
     driver: bridge
-#    internal: true
+    driver_opts:
+      com.docker.network.driver.mtu: 1400
     ipam:
       config:
-        - subnet: 172.20.0.0/16
+        - subnet: 172.20.0.0/24
 
 services:
   mc:
+ #   dns:
+ #     - 1.1.1.1
+    user: "0:0"
     image: itzg/minecraft-server:java17
     networks:
       minecraft-network:
@@ -35,12 +39,13 @@ services:
 #    ports:
 #      - "25565:25565"
     environment:
+      UID: 0
+      GID: 0
       VERSION: "1.20.1"
       TYPE: FORGE
       FORGE_VERSION: "47.4.13"
       EULA: "true"
       MEMORY: "8G"
-      # USE_AIKAR_FLAGS: "TRUE"
       USE_MEOWICE_FLAGS: "true"
       GUI: "FALSE"
       OVERRIDE_SERVER_PROPERTIES: "true"
@@ -62,11 +67,11 @@ services:
     volumes:
       # attach the relative directory 'data' to the container's /data path
       - ./data:/data:Z
-      - ./b1mo:/data/b1mo
-      - ./mods:/mods
-      - ./config:/config
-      - ./kubejs:/data/kubejs
-      - ./global_packs:/data/global_packs
+      - ./b1mo:/data/b1mo:Z
+      - ./mods:/data/mods:Z
+      - ./config:/data/config:Z
+      - ./kubejs:/data/kubejs:Z
+      - ./global_packs:/data/global_packs:Z
     restart: unless-stopped
 
   lazymc:
@@ -77,7 +82,7 @@ services:
     restart: unless-stopped
     volumes:
       # you should mount the minecraft server dir under /server, using read only.
-      - data:/server:ro
+      - ./data:/server:ro
       # you need to supply the docker socket, so that the container can run docker command
       - /run/user/1000/docker.sock:/var/run/docker.sock:rw
     ports:
