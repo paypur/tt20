@@ -136,6 +136,10 @@ ServerEvents.recipes(event => {
         1175,
         143);
 
+    /* Create Additions Compat Removal
+     */
+    event.remove({id: /createaddition:compat\/tconstruct\/.*/ });
+
     /*
      * Modifiers
      */
