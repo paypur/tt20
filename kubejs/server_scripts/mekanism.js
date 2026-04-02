@@ -226,6 +226,13 @@ ServerEvents.recipes(event => {
     event.remove({output: "mekanism:portable_teleporter"});
     event.remove({output: "mekanism:module_teleportation_unit"});
 
+    /* Tanks
+     */
+    event.replaceInput({id: "mekanism:fluid_tank/basic"}, "minecraft:iron_ingot", "#forge:ingots/steel")
+    event.replaceInput({id: "mekanism:fluid_tank/advanced"}, "minecraft:iron_ingot", "#forge:ingots/steel")
+    event.replaceInput({id: "mekanism:fluid_tank/elite"}, "minecraft:iron_ingot", "#forge:ingots/steel")
+    event.replaceInput({id: "mekanism:fluid_tank/ultimate"}, "minecraft:iron_ingot", "#forge:ingots/steel")
+
     /* Others
      */
 

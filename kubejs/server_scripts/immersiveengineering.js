@@ -105,5 +105,5 @@ ServerEvents.recipes(event => {
 
     /* Power Generation
      */
-    // TODO: nerf water wheel recipe
+    global.replace(event, "immersiveengineering:watermill", ["WWW", "WSW", "WWW"], {W: 'immersiveengineering:waterwheel_segment', S: 'mekanism:ingot_steel'});
 });
