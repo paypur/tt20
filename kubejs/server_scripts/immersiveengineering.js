@@ -74,8 +74,6 @@ ServerEvents.recipes(event => {
         .forEach(material => crushing(material));
 
     // use tfmg coke oven instead
-    event.remove({output: "immersiveengineering:cokebrick"});
-    event.remove({type: "immersiveengineering:coke_oven"});
     event.remove({type: "immersiveengineering:alloy"});
 
     blast_furnace_tag("forge:gems/quartz", "forge:ingots/silicon", 1200);
