@@ -69,6 +69,9 @@ ServerEvents.recipes(event => {
     // Make ore processing require ore blocks
     event.remove({id: /immersiveengineering:crusher\/raw_(ore|block)_.*/});
 
+    // remove hammering raw ores
+    event.remove({id: /immersiveengineering:crafting\/(raw_)?hammercrushing_.*/ });
+
     // only do ones the ie doesn't already add
     ["fluorite", "bronze", "lapis", "quartz", "emerald", "diamond", "steel", "obsidian", "refined_obsidian", "osmium", "tin", "lithium", "cobalt", "draconium"]
         .forEach(material => crushing(material));
@@ -78,9 +81,7 @@ ServerEvents.recipes(event => {
 
     blast_furnace_tag("forge:gems/quartz", "forge:ingots/silicon", 1200);
 
-    event.replaceInput({output: "immersiveengineering:blastbrick"}, "#forge:ingots/brick", "tfmg:fireproof_brick");
-
-    event.remove({id: /immersiveengineering:crafting\/(raw_)?hammercrushing_.*/ });
+    event.replaceInput({output: "immersiveengineering:blastbrick"}, "#forge:ingots/brick", "tconstruct:seared_brick");
 
     /* Circuits
      */
