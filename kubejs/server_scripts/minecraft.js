@@ -34,6 +34,11 @@ ServerEvents.recipes(event => {
         event.remove({output:`${prefix}_boots`});
     });
 
+    /**
+     * Crafting Tables
+     */
+    event.replaceInput({input: "minecraft:crafting_table"}, "minecraft:crafting_table", "#forge:workbenches");
+
     /* Furnaces
      */
     event.replaceInput({input: "minecraft:furnace"}, "minecraft:furnace", "#kubejs:furnace");

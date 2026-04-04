@@ -1,6 +1,8 @@
 ServerEvents.tags('item', event => {
     /* KubeJS stuff
      */
+    event.add("forge:workbenches", "#biomeswevegone:crafting_tables");
+    event.add("forge:workbenches", "#blue_skies:crafting_tables");
 
     event.add('kubejs:gearbox', 'create:gearbox');
     event.add('kubejs:gearbox', 'create:vertical_gearbox');
