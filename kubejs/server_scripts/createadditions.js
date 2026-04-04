@@ -1,4 +1,6 @@
 ServerEvents.recipes(event => {
+    event.remove({id: "createaddition:crushing/diamond"});
+
     let replace_spool = (spool, coil) => {
         event.remove({ output: spool })
         event.replaceInput({ input: spool }, spool, coil)
