@@ -81,7 +81,8 @@ ServerEvents.recipes(event => {
 
     blast_furnace_tag("forge:gems/quartz", "forge:ingots/silicon", 1200);
 
-    event.replaceInput({output: "immersiveengineering:blastbrick"}, "#forge:ingots/brick", "tconstruct:seared_brick");
+    event.remove({output: "immersiveengineering:blastbrick"});
+    event.recipes.create.mixing(["3x immersiveengineering:blastbrick"], ["4x minecraft:nether_brick", "4x tconstruct:seared_brick", "minecraft:magma_block"]).heated()
 
     /* Circuits
      */
