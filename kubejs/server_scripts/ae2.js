@@ -18,5 +18,5 @@ ServerEvents.recipes(event => {
         O: 'ae2:logic_processor'
     })
 
-    event.replaceInput({mod: "ae2"}, "minecraft:iron_ingot", "#forge:ingots/invar");
+    event.replaceInput({mod: "ae2"}, "minecraft:iron_ingot", "#forge:ingots/aluminum");
 })
