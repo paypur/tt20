@@ -2,6 +2,8 @@
 
 // Visit the wiki for more info - https://kubejs.com/
 
+const TCON = "tconstruct:";
+
 ServerEvents.recipes(event => {
     const replace = (replace, recipe, dict) => {
         event.remove({output: replace})
@@ -37,6 +39,7 @@ ServerEvents.recipes(event => {
     event.replaceInput({mod: 'tconstruct'}, 'minecraft:glass', 'tconstruct:clear_glass');
     event.blasting('tconstruct:clear_glass', 'minecraft:glass');
 
+    event.remove({id: TCON + "smeltery/casting/seared/brick_composite"});
 
     // event.shapeless(Item.of('mekanism:dust_bronze', 4), ['3x #forge:dusts/copper', '#forge:dusts/tin'])
 
