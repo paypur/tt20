@@ -11,7 +11,7 @@ ServerEvents.recipes(event => {
             C: '#forge:chests',
             I: '#forge:ingots/iron',
             S: 'minecraft:string',
-            L: '#kubejs:leather'
+            L: '#forge:leather'
         }
     )
 })

@@ -24,23 +24,23 @@ ServerEvents.tags('item', event => {
     ["iron", "gold", "copper", "zinc", "osmium", "tin", "lead", "uranium", "nickel"]
         .forEach(s => event.add(`forge:dusts/${s}`, `create:crushed_raw_${s}`));
 
-    event.add("forge:dusts/sulfur", 'tfmg:sulfur_dust');
+    // event.add("forge:dusts/sulfur", 'tfmg:sulfur_dust');
 
     event.removeAll('create:fan_processing_catalysts/blasting');
 
-    ["amethyst", "apatite", "azure_silver", "bismuth", "bort", "cinnabar", "crimson_iron", "desh", "dilithium",
-        "electrotine", "green_sapphire", "iridium", "niter", "peridot", "platinum", "ruby", "sapphire", "ostrum",
-        "calorite", "titanium", "tungsten", "coal", "lapis", "diamond", "redstone", "emerald", "quartz"]
-        .forEach(o => {
-            event.removeAllTagsFrom(`moremekanismprocessing:crystal_${o}`);
-            event.removeAllTagsFrom(`moremekanismprocessing:shard_${o}`);
-            event.removeAllTagsFrom(`moremekanismprocessing:clump_${o}`);
-            event.removeAllTagsFrom(`moremekanismprocessing:dirty_dust_${o}`);
-            event.removeAllTagsFrom(`moremekanismprocessing:dust_${o}`);
-            event.removeAllTagsFrom(`moremekanismprocessing:gem_${o}`);
-            event.removeAllTagsFrom(`moremekanismprocessing:${o}_ingot`);
-            event.removeAllTagsFrom(`moremekanismprocessing:${o}_nugget`);
-        });
+    // ["amethyst", "apatite", "azure_silver", "bismuth", "bort", "cinnabar", "crimson_iron", "desh", "dilithium",
+    //     "electrotine", "green_sapphire", "iridium", "niter", "peridot", "platinum", "ruby", "sapphire", "ostrum",
+    //     "calorite", "titanium", "tungsten", "coal", "lapis", "diamond", "redstone", "emerald", "quartz"]
+    //     .forEach(o => {
+    //         event.removeAllTagsFrom(`moremekanismprocessing:crystal_${o}`);
+    //         event.removeAllTagsFrom(`moremekanismprocessing:shard_${o}`);
+    //         event.removeAllTagsFrom(`moremekanismprocessing:clump_${o}`);
+    //         event.removeAllTagsFrom(`moremekanismprocessing:dirty_dust_${o}`);
+    //         event.removeAllTagsFrom(`moremekanismprocessing:dust_${o}`);
+    //         event.removeAllTagsFrom(`moremekanismprocessing:gem_${o}`);
+    //         event.removeAllTagsFrom(`moremekanismprocessing:${o}_ingot`);
+    //         event.removeAllTagsFrom(`moremekanismprocessing:${o}_nugget`);
+    //     });
 
     event.add('quark:revertable_chests', '#woodwevegot:chests');
 })
@@ -59,14 +59,14 @@ ServerEvents.tags('block', event => {
 ServerEvents.tags('fluid', event => {
     event.removeAll('create:fan_processing_catalysts/blasting');
 
-    event.removeAllTagsFrom("tfmg:molten_steel");
+    // event.removeAllTagsFrom("tfmg:molten_steel");
 
-    // fluid specific
-    ["amethyst", "apatite", "azure_silver", "bismuth", "bort", "cinnabar", "crimson_iron", "desh", "dilithium",
-        "electrotine", "green_sapphire", "iridium", "niter", "peridot", "platinum", "ruby", "sapphire", "ostrum",
-        "calorite", "titanium", "tungsten", "coal", "lapis", "diamond", "redstone", "emerald", "quartz"]
-        .forEach(o => {
-            event.removeAllTagsFrom(`moremekanismprocessing:clean_${o}`);
-            event.removeAllTagsFrom(`moremekanismprocessing:dirty_${o}`);
-        });
+    // // fluid specific
+    // ["amethyst", "apatite", "azure_silver", "bismuth", "bort", "cinnabar", "crimson_iron", "desh", "dilithium",
+    //     "electrotine", "green_sapphire", "iridium", "niter", "peridot", "platinum", "ruby", "sapphire", "ostrum",
+    //     "calorite", "titanium", "tungsten", "coal", "lapis", "diamond", "redstone", "emerald", "quartz"]
+    //     .forEach(o => {
+    //         event.removeAllTagsFrom(`moremekanismprocessing:clean_${o}`);
+    //         event.removeAllTagsFrom(`moremekanismprocessing:dirty_${o}`);
+    //     });
 })

@@ -69,6 +69,7 @@ ServerEvents.recipes(event => {
     event.remove({id: 'tconstruct:smeltery/casting/scorched/brick_composite'})
     event.remove({id: 'tconstruct:smeltery/casting/scorched/polished_from_magma'})
     event.remove({id: 'tconstruct:smeltery/casting/scorched/stone_from_magma'})
+    // TODO: using scoria, remove its soul sand recipe
     event.recipes.createMixing([Fluid.of("tconstruct:scorched_stone", 250)], [Fluid.of("tconstruct:magma", 250), "minecraft:soul_soil", "minecraft:gravel"]).heated();
 
     event.remove({output: "tconstruct:scorched_alloyer"})

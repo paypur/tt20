@@ -57,7 +57,7 @@ ServerEvents.recipes(event => {
         "results": [{"item": "create:blaze_cake"}]
     });
 
-    event.remove({id: "tfmg:nitrate_dust"});
+    // event.remove({id: "tfmg:nitrate_dust"});
     event.recipes.create.crushing([Item.of("immersiveengineering:dust_saltpeter").withChance(0.05)], "minecraft:dirt");
 
     /* Circuit stuff
@@ -67,11 +67,11 @@ ServerEvents.recipes(event => {
         [Fluid.of('minecraft:water', 100), "2x #forge:dusts/sulfur", '#forge:dusts/saltpeter']
     ).heated()
 
-    event.recipes.create.filling("tfmg:etched_circuit_board", [Fluid.of('mekanism:sulfuric_acid', 100), "tfmg:coated_circuit_board"])
+    // event.recipes.create.filling("tfmg:etched_circuit_board", [Fluid.of('mekanism:sulfuric_acid', 100), "tfmg:coated_circuit_board"])
 
     /* Missing Metal Plates
      */
-    event.remove({id: "tfmg:sequenced_assembly/heavy_plate"});
+    // event.remove({id: "tfmg:sequenced_assembly/heavy_plate"});
 
     /*
      * Block Breakers
@@ -97,5 +97,5 @@ ServerEvents.tags('item', event => {
     event.add('forge:dusts/silver', 'create:crushed_raw_silver');
     event.add('forge:dusts/tin', 'create:crushed_raw_tin');
     event.add('forge:dusts/aluminum', 'create:crushed_raw_aluminum');
-    event.add('forge:dusts/lithium', 'tfmg:crushed_raw_lithium');
+    // event.add('forge:dusts/lithium', 'tfmg:crushed_raw_lithium');
 });

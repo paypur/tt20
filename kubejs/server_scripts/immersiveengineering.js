@@ -77,12 +77,16 @@ ServerEvents.recipes(event => {
         .forEach(material => crushing(material));
 
     // use tfmg coke oven instead
-    event.remove({type: "immersiveengineering:alloy"});
+    // event.remove({type: "immersiveengineering:alloy"});
 
     blast_furnace_tag("forge:gems/quartz", "forge:ingots/silicon", 1200);
 
     event.remove({output: "immersiveengineering:blastbrick"});
     event.recipes.create.mixing(["3x immersiveengineering:blastbrick"], ["4x minecraft:nether_brick", "4x tconstruct:seared_brick", "minecraft:magma_block"]).heated()
+
+    /**
+     * TODO: what if ie hammers got unbreaking when crafted with treated stick??
+     */
 
     /* Circuits
      */
@@ -105,5 +109,5 @@ ServerEvents.recipes(event => {
 
     /* Power Generation
      */
-    global.replace(event, "immersiveengineering:watermill", ["WWW", "WSW", "WWW"], {W: 'immersiveengineering:waterwheel_segment', S: 'mekanism:ingot_steel'});
+    global.replace(event, "immersiveengineering:watermill", ["WWW", "WSW", "WWW"], {W: 'immersiveengineering:waterwheel_segment', S: '#forge:ingots/steel'});
 });
