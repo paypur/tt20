@@ -1,13 +1,10 @@
 {
   "modPriorities": [
     "minecraft",
-    "mekanism",
     "immersiveengineering",
-    "create",
+    "immersivegeology",
     "tconstruct",
-    "tfmg",
-    "draconicevolution",
-    "moremekanismprocessing"
+    "create"
   ],
   "stoneStrata": [
     "stone",
