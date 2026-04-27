@@ -70,7 +70,7 @@ ServerEvents.recipes(event => {
     event.remove({id: /immersiveengineering:crusher\/raw_(ore|block)_.*/});
 
     // remove hammering raw ores
-    event.remove({id: /immersiveengineering:crafting\/(raw_)?hammercrushing_.*/ });
+    // event.remove({id: /immersiveengineering:crafting\/(raw_)?hammercrushing_.*/ });
 
     // only do ones the ie doesn't already add
     ["fluorite", "bronze", "lapis", "quartz", "emerald", "diamond", "steel", "obsidian", "refined_obsidian", "osmium", "tin", "lithium", "cobalt", "draconium"]
@@ -82,7 +82,7 @@ ServerEvents.recipes(event => {
     blast_furnace_tag("forge:gems/quartz", "forge:ingots/silicon", 1200);
 
     event.remove({output: "immersiveengineering:blastbrick"});
-    event.recipes.create.mixing(["3x immersiveengineering:blastbrick"], ["4x minecraft:nether_brick", "4x tconstruct:seared_brick", "minecraft:magma_block"]).heated()
+    event.recipes.create.mixing(["3x immersiveengineering:blastbrick"], ["4x minecraft:nether_brick", "4x create:scoria", "minecraft:magma_block"]).heated();
 
     /**
      * TODO: what if ie hammers got unbreaking when crafted with treated stick??
