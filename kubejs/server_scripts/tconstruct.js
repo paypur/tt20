@@ -54,7 +54,7 @@ ServerEvents.recipes(event => {
 
     replace('tconstruct:smeltery_controller', ['BBB', 'BGB', 'SFS'], {
         B: '#forge:ingots/bronze',
-        G: 'create:precision_mechanism',
+        G: 'tconstruct:clear_glass',
         S: 'tconstruct:seared_bricks',
         F: 'minecraft:blast_furnace'
     });
@@ -123,7 +123,6 @@ ServerEvents.recipes(event => {
 
     /* Foundry Melting
      */
-
     event.remove({id: "tconstruct:smeltery/melting/diamond/ore_singular"});
     foundry("forge:ores/diamond",
         {"amount": 100, "fluid": "tconstruct:molten_diamond"},
@@ -140,9 +139,6 @@ ServerEvents.recipes(event => {
         1175,
         143);
 
-    /* Create Additions Compat Removal
-     */
-    event.remove({id: /createaddition:compat\/tconstruct\/.*/ });
 
     /*
      * Modifiers
@@ -166,4 +162,11 @@ ServerEvents.recipes(event => {
         }
     })
 
+    /* Compat Removal
+     */
+    event.remove({id: "createaddition:compat/tconstruct/hepatizon" });
+    event.remove({id: "createaddition:compat/tconstruct/manyullyn" });
+    event.remove({id: "createaddition:compat/tconstruct/queens_slime" });
+    event.remove({id: "immersiveengineering:alloysmelter/manyullyn" });
+    event.remove({id: "immersiveengineering:arcfurnace/alloy_manyullyn" });
 })
