@@ -54,7 +54,7 @@ ServerEvents.recipes(event => {
 
     replace('tconstruct:smeltery_controller', ['BBB', 'BGB', 'SFS'], {
         B: '#forge:ingots/bronze',
-        G: 'tconstruct:clear_glass',
+        G: 'create:precision_mechanism',
         S: 'tconstruct:seared_bricks',
         F: 'minecraft:blast_furnace'
     });
