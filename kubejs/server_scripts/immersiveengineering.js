@@ -1,3 +1,5 @@
+const UNBREAKING = { Enchantments: [{id: "minecraft:unbreaking", lvl: 1}] };
+
 ServerEvents.recipes(event => {
     const blast_furnace_tag = (input, result, time) => {
         event.custom({
@@ -71,6 +73,30 @@ ServerEvents.recipes(event => {
 
     // remove hammering raw ores
     // event.remove({id: /immersiveengineering:crafting\/(raw_)?hammercrushing_.*/ });
+
+    /**
+     * Tools
+     */
+    event.shaped(
+        Item.of("immersivegeology:hammer_stone", UNBREAKING),
+        [" Bs", " SB", "S  "],
+        {B: "#forge:cobblestone", S: "#forge:rods/treated_wood", s: "minecraft:string"}
+    );
+    event.shaped(
+        Item.of("immersivegeology:hammer_bronze", UNBREAKING),
+        [" Bs", " SB", "S  "],
+        {B: "#forge:ingots/bronze", S: "#forge:rods/treated_wood", s: "minecraft:string"}
+    );
+    event.shaped(
+        Item.of("immersiveengineering:hammer", UNBREAKING),
+        [" Bs", " SB", "S  "],
+        {B: "#forge:ingots/iron", S: "#forge:rods/treated_wood", s: "minecraft:string"}
+    );
+    event.shaped(
+        Item.of("immersiveengineering:wirecutter", UNBREAKING),
+        ["SI", " S"],
+        {I: "#forge:ingots/iron", S: "#forge:rods/treated_wood"}
+    );
 
     // only do ones the ie doesn't already add
     ["fluorite", "bronze", "lapis", "quartz", "emerald", "diamond", "steel", "obsidian", "refined_obsidian", "osmium", "tin", "lithium", "cobalt", "draconium"]
