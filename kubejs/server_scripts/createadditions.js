@@ -11,11 +11,8 @@ ServerEvents.recipes(event => {
     replace_spool("createaddition:gold_spool", 'immersiveengineering:wirecoil_electrum');
     replace_spool("createaddition:electrum_spool", 'immersiveengineering:wirecoil_steel');
 
-    event.replaceInput({}, "createaddition:capacitor", "tfmg:capacitor_item");
-
     /* Liquid Blaze Burning
      */
-
     event.remove({ type: "createaddition:liquid_burning" });
 
     const blaze_burning = (fluid, time, superheated) => {

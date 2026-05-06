@@ -73,7 +73,7 @@ ServerEvents.recipes(event => {
     event.remove({id: 'tconstruct:smeltery/casting/scorched/polished_from_magma'})
     event.remove({id: 'tconstruct:smeltery/casting/scorched/stone_from_magma'})
     // TODO: using scoria, remove its soul sand recipe
-    event.recipes.createMixing([Fluid.of("tconstruct:scorched_stone", 250)], [Fluid.of("tconstruct:magma", 250), "minecraft:soul_soil", "minecraft:gravel"]).heated();
+    event.recipes.createMixing([Fluid.of("tconstruct:scorched_stone", 250)], [Fluid.of("tconstruct:magma", 250), "minecraft:soul_soil", "minecraft:gravel"]).superheated();
 
     event.remove({output: "tconstruct:scorched_alloyer"})
     event.recipes.createMechanicalCrafting("tconstruct:scorched_alloyer", [
@@ -148,9 +148,9 @@ ServerEvents.recipes(event => {
         "type": "tconstruct:modifier",
         "allow_crystal": true,
         "inputs": [
-            {"item": "mekanism:dust_diamond"},
-            {"item": "mekanism:dust_diamond"},
-            {"item": "mekanism:dust_diamond"}
+            {"tag": "forge:dusts/diamond"},
+            {"tag": "forge:dusts/diamond"},
+            {"tag": "forge:dusts/diamond"}
         ],
         "level": 1,
         "result": "tconstruct:diamond",
