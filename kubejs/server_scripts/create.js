@@ -1,25 +1,21 @@
 // https://kubejs.com/wiki/addons/create
 
 ServerEvents.recipes(event => {
-    const replace = (replace, recipe, dict) => {
-        event.remove({output: replace})
-        event.shaped(Item.of(replace, 1), recipe, dict)
-    };
-
-    replace('create:cogwheel', [" B ", "BSB", " B "], {
+    global.replace(event, 'create:cogwheel', [" B ", "BSB", " B "], {
         B: "#minecraft:wooden_buttons",
         S: "create:shaft"
     });
-    replace('create:large_cogwheel', ["BPB", "PSP", "BPB"], {
+
+    global.replace(event, 'create:large_cogwheel', ["BPB", "PSP", "BPB"], {
         B: "#minecraft:wooden_buttons",
         P: "#minecraft:planks",
         S: "create:shaft"
     });
 
-    event.remove({output: "create:sail_frame"});
-    event.shaped("4x create:sail_frame", ["ASA", "S S", "ASA"], {A: "create:andesite_alloy", S: "#forge:rods/wooden"});
-    event.remove({output: "create:white_sail"});
-    event.shapeless("create:white_sail", ["create:sail_frame", "immersiveengineering:hemp_fabric"]);
+    global.replace(event, "4x create:sail_frame", ["ASA", "S S", "ASA"], {A: "create:andesite_alloy", S: "immersiveengineering:stick_treated"});
+    global.replaceShapeless(event, "create:white_sail", ["create:sail_frame", "immersiveengineering:hemp_fabric"]);
+
+    event.replaceInput({output: "create:fluid_tank"}, "#forge:barrels/wooden", "immersiveengineering:wooden_barrel");
 
     // no more rng
     event.remove({output: 'create:precision_mechanism'});

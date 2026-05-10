@@ -135,5 +135,7 @@ ServerEvents.recipes(event => {
 
     /* Power Generation
      */
+    event.replaceInput({id: "immersiveengineering:crafting/hemp_fabric"}, "#forge:rods/wooden", "immersiveengineering:stick_treated");
+
     global.replace(event, "immersiveengineering:watermill", ["WWW", "WSW", "WWW"], {W: 'immersiveengineering:waterwheel_segment', S: '#forge:ingots/steel'});
 });
