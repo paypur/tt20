@@ -80,19 +80,18 @@ ServerEvents.recipes(event => {
         'GGDGG',
         'GOMOG',
         'DPNPD',
-        'SSCSS',
+        'SSSSS',
         'SABAS',
     ], {
-        A: 'mekanism:advanced_control_circuit',
+        A: 'immersiveengineering:component_electronic',
         B: 'minecraft:blast_furnace',
-        C: 'tfmg:steel_casing',
         D: 'tconstruct:scorched_drain',
         G: 'ae2:quartz_glass',
         S: 'tconstruct:scorched_brick',
-        O: 'tfmg:steel_cogwheel',
-        N: 'create:basin',
+        O: 'create:cogwheel',
+        N: 'immersiveengineering:heavy_engineering',
         M: 'create:mechanical_mixer',
-        P: 'tfmg:steel_pipe'
+        P: 'create:smart_fluid_pipe'
     })
 
     // TODO: change melting byproduct
@@ -104,9 +103,9 @@ ServerEvents.recipes(event => {
         'SABAS',
         'SSSSS'
     ], {
-        A: 'mekanism:advanced_control_circuit',
+        A: 'immersiveengineering:component_electronic',
         B: 'minecraft:blast_furnace',
-        C: 'tfmg:steel_casing',
+        C: 'immersiveengineering:heavy_engineering',
         G: 'ae2:quartz_glass',
         S: 'tconstruct:scorched_brick',
         O: 'create:content_observer'
