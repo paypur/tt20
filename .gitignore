@@ -20,6 +20,11 @@ xaero/
 XaeroWorldMap/
 XaeroWaypoints_BACKUP240807/
 
+# don't include default configs
+*.cfg
+*.json
+*.toml
+
 .qmenu_opened.marker
 icon.png
 options.txt
@@ -30,3 +35,4 @@ usernamecache.json
 
 *.log
 servers*
+/allowed_symlinks.txt
