@@ -1,6 +1,6 @@
-const ID = "immersivegeology:";
-
 ServerEvents.recipes(event => {
+    const ID = "immersivegeology:";
+
     const casting_basin = (input, fluid, output, time) => {
         event.custom({
             "type": "tconstruct:casting_basin",

@@ -1,6 +1,8 @@
 const UNBREAKING = { Enchantments: [{id: "minecraft:unbreaking", lvl: 1}] };
 
 ServerEvents.recipes(event => {
+    const ID = "immersiveengineering:";
+
     const blast_furnace_tag = (input, result, time) => {
         event.custom({
             "type": "immersiveengineering:blast_furnace",
@@ -26,7 +28,7 @@ ServerEvents.recipes(event => {
         event.shaped(
             plate,
             ["H", "I", "I"],
-            { H: Item.of('immersiveengineering:hammer').ignoreNBT(), I: ingot }
+            { H: Item.of('immersiveengineering:hammer'), I: ingot }
         )
         .damageIngredient('immersiveengineering:hammer')
         .keepIngredient('immersiveengineering:hammer')
@@ -110,10 +112,6 @@ ServerEvents.recipes(event => {
     event.remove({output: "immersiveengineering:blastbrick"});
     event.recipes.create.mixing(["3x immersiveengineering:blastbrick"], ["4x minecraft:nether_brick", "4x create:scoria", "minecraft:magma_block"]).heated();
 
-    /**
-     * TODO: what if ie hammers got unbreaking when crafted with treated stick??
-     */
-
     /* Circuits
      */
     event.remove({output: "immersiveengineering:electron_tube"})
@@ -133,9 +131,24 @@ ServerEvents.recipes(event => {
      */
     event.replaceInput({output: "immersiveengineering:cloche"}, "immersiveengineering:component_iron", "immersiveengineering:light_engineering");
 
+    /**
+     * Engineering Blocks
+     */
+    // doesn work :(
+    // event.replaceInput({id: "immersiveengineering:crafting/rs_engineering"}, "minecraft:copper_ingot", "create:precision_mechanism");
+    global.replace(event, ID + "rs_engineering", [
+        'SRS',
+        'RCR',
+        'SRS'
+    ], {
+        S: ID + "sheetmetal_iron",
+        R: "minecraft:redstone",
+        C: "create:precision_mechanism"
+    })
+    event.replaceInput({id: ID + "crafting/light_engineering"}, "minecraft:copper_ingot", "create:precision_mechanism");
+    event.replaceInput({id: ID + "crafting/heavy_engineering"}, "#forge:ingots/electrum", "create:precision_mechanism");
+
     /* Power Generation
      */
-    event.replaceInput({id: "immersiveengineering:crafting/hemp_fabric"}, "#forge:rods/wooden", "immersiveengineering:stick_treated");
-
     global.replace(event, "immersiveengineering:watermill", ["WWW", "WSW", "WWW"], {W: 'immersiveengineering:waterwheel_segment', S: '#forge:ingots/steel'});
 });
