@@ -21,6 +21,14 @@ ServerEvents.recipes(event => {
         });
     }
 
+    /* Treated Wood replacements
+     */
+    event.replaceInput({id: ID + "crafting/hemp_fabric"}, "#forge:rods/wooden", ID + "stick_treated");
+
+    event.forEachRecipe({ id: /immersiveengineering:crafting\/wirecoil_.*/ }, recipe => {
+        recipe.replaceInput("#forge:rods/wooden", ID + "stick_treated");
+    });
+
     /* Nerfs plates
      */
     const replacePlates = (plate, ingot) => {

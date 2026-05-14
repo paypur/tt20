@@ -12,7 +12,7 @@ ServerEvents.recipes(event => {
         S: "create:shaft"
     });
 
-    global.replace(event, "4x create:sail_frame", ["ASA", "S S", "ASA"], {A: "create:andesite_alloy", S: "immersiveengineering:stick_treated"});
+    global.replace(event, "4x create:sail_frame", ["ASA", "S S", "ASA"], {A: "create:andesite_alloy", S: "immersiveengineering:treated_fence"});
     global.replaceShapeless(event, "create:white_sail", ["create:sail_frame", "immersiveengineering:hemp_fabric"]);
 
     event.replaceInput({output: "create:fluid_tank"}, "#forge:barrels/wooden", "immersiveengineering:wooden_barrel");

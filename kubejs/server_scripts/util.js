@@ -1,10 +1,12 @@
 // priority: 10
 global.replace = (event, item, recipe, dict) => {
-    const split = item.split(" ");
+    const split = item.split("x ");
+
+    const count = split.length === 2 ? parseInt(split[0]) : 1;
     item = split.length === 2 ? split[1] : item;
 
     event.remove({output: item});
-    event.shaped(Item.of(item, 1), recipe, dict);
+    event.shaped(Item.of(item, count), recipe, dict);
 }
 
 global.replaceShapeless = (event, item, recipe_items) => {
