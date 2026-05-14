@@ -70,3 +70,7 @@ ServerEvents.tags('fluid', event => {
     //         event.removeAllTagsFrom(`moremekanismprocessing:dirty_${o}`);
     //     });
 })
+
+ServerEvents.tags("block_entity_type", event => {
+    event.add("tconstruct:side_inventories", "quark:variant_chest");
+})
