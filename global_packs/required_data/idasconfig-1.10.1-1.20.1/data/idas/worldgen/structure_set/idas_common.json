@@ -1,0 +1,82 @@
+{
+  "structures": [
+    {
+      "structure": "idas:bearclaw_inn",
+      "weight": 5
+    },
+    {
+      "structure": "idas:hunters_cabin",
+      "weight": 4
+    },
+    {
+      "structure": "idas:castle",
+      "weight": 7
+    },
+    {
+      "structure": "idas:brickhouse",
+      "weight": 5
+    },
+    {
+      "structure": "idas:wizard_tower",
+      "weight": 4
+    },
+    {
+      "structure": "idas:beekeepers_house",
+      "weight": 5
+    },
+    {
+      "structure": "idas:farmhouse",
+      "weight": 5
+    },
+    {
+      "structure": "idas:witches_treestump",
+      "weight": 3
+    },
+    {
+      "structure": "idas:haunted_manor",
+      "weight": 1
+    },
+    {
+      "structure": "idas:apothecary_abode",
+      "weight": 1
+    },
+    {
+      "structure": "idas:botanist",
+      "weight": 5
+    },
+    {
+      "structure": "idas:mason_house",
+      "weight": 5
+    },
+    {
+      "structure": "idas:abandoned_vineyard",
+      "weight": 4
+    },
+    {
+      "structure": "idas:desert_ruins",
+      "weight": 2
+    },
+    {
+      "structure": "idas:ruined_church",
+      "weight": 3
+    },
+    {
+      "structure": "idas:ruined_fort",
+      "weight": 3
+    },
+    {
+      "structure": "idas:ruined_well",
+      "weight": 3
+    }
+  ],
+  "placement": {
+    "salt": 169480670,
+    "spacing": 30,
+    "separation": 12,
+    "type": "integrated_api:advanced_random_spread",
+    "super_exclusion_zone": {
+      "chunk_count": 16,
+      "other_set": "#idas:common_avoid"
+    }
+  }
+}
