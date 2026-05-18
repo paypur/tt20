@@ -97,7 +97,7 @@
 	[client.sound]
 		#.
 		#Make cogs rumble and machines clatter.
-		enableAmbientSounds = true
+		enableAmbientSounds = false
 		#.
 		#Maximum volume modifier of Ambient noise
 		#Range: 0.0 ~ 1.0
