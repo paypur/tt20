@@ -3,15 +3,6 @@ const UNBREAKING = { Enchantments: [{id: "minecraft:unbreaking", lvl: 1}] };
 ServerEvents.recipes(event => {
     const ID = "immersiveengineering:";
 
-    const blast_furnace_tag = (input, result, time) => {
-        event.custom({
-            "type": "immersiveengineering:blast_furnace",
-            "input": {"tag": input},
-            "result": {"tag": result},
-            "time": time
-        });
-    }
-
     const blueprint = (category, inputs, output) => {
         event.custom({
             "type": "immersiveengineering:blueprint",
@@ -114,8 +105,6 @@ ServerEvents.recipes(event => {
 
     // use tfmg coke oven instead
     // event.remove({type: "immersiveengineering:alloy"});
-
-    blast_furnace_tag("forge:gems/quartz", "forge:ingots/silicon", 1200);
 
     event.remove({output: "immersiveengineering:blastbrick"});
     event.recipes.create.mixing(["3x immersiveengineering:blastbrick"], ["4x minecraft:nether_brick", "4x create:scoria", "minecraft:magma_block"]).heated();
