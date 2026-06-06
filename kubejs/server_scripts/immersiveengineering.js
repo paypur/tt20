@@ -44,6 +44,7 @@ ServerEvents.recipes(event => {
     replacePlates("immersiveengineering:plate_steel", "#forge:ingots/steel")
     replacePlates("immersiveengineering:plate_iron", "#forge:ingots/iron")
     replacePlates("immersiveengineering:plate_gold", "#forge:ingots/gold")
+    replacePlates("immersivegeology:plate_bronze", "#forge:ingots/bronze")
     replacePlates("create:brass_sheet", "#forge:ingots/brass")
     replacePlates("createaddition:zinc_sheet", "#forge:ingots/zinc")
     replacePlates("kubejs:invar_plate", "#forge:ingots/invar")

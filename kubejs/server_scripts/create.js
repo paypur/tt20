@@ -1,6 +1,14 @@
 // https://kubejs.com/wiki/addons/create
 
 ServerEvents.recipes(event => {
+    const metal_plate = (mod, metal) => {
+        event.custom({
+            "type": "create:pressing",
+            "ingredients": [{ "tag": `forge:ingots/${metal}` }],
+            "results": [{ "item": `${mod}:plate_${metal}` }]
+        });
+    }
+
     global.replace(event, 'create:cogwheel', [" B ", "BSB", " B "], {
         B: "#minecraft:wooden_buttons",
         S: "create:shaft"
@@ -67,7 +75,7 @@ ServerEvents.recipes(event => {
 
     /* Missing Metal Plates
      */
-    // event.remove({id: "tfmg:sequenced_assembly/heavy_plate"});
+    metal_plate("immersivegeology", "bronze");
 
     /*
      * Block Breakers
