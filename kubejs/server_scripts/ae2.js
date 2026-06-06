@@ -12,7 +12,7 @@ ServerEvents.recipes(event => {
         R: 'projectred_illumination:red_inverted_fixture_light',
         G: 'projectred_illumination:green_inverted_fixture_light',
         B: 'projectred_illumination:blue_inverted_fixture_light',
-        U: 'mekanism:alloy_atomic',
+        U: '#forge:ingots/platinum',
         L: 'ae2:calculation_processor',
         E: 'ae2:engineering_processor',
         O: 'ae2:logic_processor'
