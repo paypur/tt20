@@ -242,17 +242,6 @@
         "value": 1024
       }
     },
-    "cataclysm:charge_time": {
-      "enabled": false,
-      "min": {
-        "default": -100,
-        "value": -100
-      },
-      "max": {
-        "default": 512,
-        "value": 512
-      }
-    },
     "caelus:fall_flying": {
       "enabled": false,
       "min": {
@@ -262,6 +251,17 @@
       "max": {
         "default": 1,
         "value": 1
+      }
+    },
+    "cataclysm:charge_time": {
+      "enabled": false,
+      "min": {
+        "default": -100,
+        "value": -100
+      },
+      "max": {
+        "default": 512,
+        "value": 512
       }
     },
     "tconstruct:player.experience_multiplier": {
