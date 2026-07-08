@@ -72,8 +72,9 @@ ServerEvents.recipes(event => {
     event.remove({id: 'tconstruct:smeltery/casting/scorched/brick_composite'})
     event.remove({id: 'tconstruct:smeltery/casting/scorched/polished_from_magma'})
     event.remove({id: 'tconstruct:smeltery/casting/scorched/stone_from_magma'})
-    // TODO: using scoria, remove its soul sand recipe
-    event.recipes.createMixing([Fluid.of("tconstruct:scorched_stone", 250)], [Fluid.of("tconstruct:magma", 250), "minecraft:soul_soil", "minecraft:gravel"]).superheated();
+
+    event.remove({output: "tconstruct:nether_grout"});
+    event.recipes.createMixing([Item.of("tconstruct:nether_grout", 2)], ["minecraft:magma_cream", "create:scoria", "immersiveengineering:slag_gravel"]).heated();
 
     event.remove({output: "tconstruct:scorched_alloyer"})
     event.recipes.createMechanicalCrafting("tconstruct:scorched_alloyer", [
@@ -118,7 +119,6 @@ ServerEvents.recipes(event => {
     // ["tconstruct:scorched_chute", "tconstruct:scorched_drain"]
     //     .forEach(s => event.replaceInput({output: s}, 'tconstruct:obsidian_pane', "tconstruct:nahuatl"));
 
-    event.remove({output: "tconstruct:nether_grout"});
 
     /* Foundry Melting
      */
